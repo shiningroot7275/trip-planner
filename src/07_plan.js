@@ -108,7 +108,7 @@ function scrollToFirst() {
   const tt = $('#tt'), days = UI.planAll ? tripDays() : [UI.planDay];
   const firsts = days.map(d => dayItems(d)[0]).filter(Boolean).map(it => it.start);
   const m = firsts.length ? Math.min(...firsts) : 9 * 60;
-  tt.scrollTop = Math.max(0, (Math.min(m, 9 * 60) - 45) / 60 * HOUR_PX);
+  tt.scrollTop = Math.max(0, (m - 45) / 60 * HOUR_PX);
 }
 function renderTray() {
   const t = T(), tray = $('#tray');
