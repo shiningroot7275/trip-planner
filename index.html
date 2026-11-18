@@ -1710,12 +1710,51 @@ function renderMore() {
 function setCheck(id, fn) { const c = T().checklist.find(x => x.id === id); if (c) { fn(c); commit(); } }
 
 /* 공유 링크: 여행 자료 전체를 압축해 주소 뒤(#share=)에 붙인다. 서버로는 아무것도 보내지 않는다 */
-function makeShare() {
+/* 공유 링크(#t=): 예시 장소는 이름표만 보내 길이를 줄이고, 압축한 자료를 URL에 안전한 글자(A-Z, a-z, 0-9, -, _)로만 적는다 */
+const SEED_PLACE_JSON = new Map(SEED_PLACES.map(p => { const n = normPlace(p); return [n.id, JSON.stringify(n)]; }));
+function packTrip(t) { const o = JSON.parse(JSON.stringify(t)); o.places = o.places.map(p => SEED_PLACE_JSON.get(p.id) === JSON.stringify(p) ? { ref: p.id } : p); return o; }
+function unpackTrip(o) { if (o && Array.isArray(o.places)) o.places = o.places.map(p => p && p.ref ? (SEED_PLACES.find(s => s.id === p.ref) || null) : p).filter(Boolean); return o; }
+function bytesToB64url(b) { let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+function b64urlToBytes(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const bin = atob(s), b = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i); return b; }
+const pipeBytes = (bytes, stream) => new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer().then(a => new Uint8Array(a));
+const safeDecodeURI = s => { try { return decodeURIComponent(s); } catch (e) { return s; } };
+async function encodeShare(t) {
+  const json = JSON.stringify(packTrip(t));
+  try { if ('CompressionStream' in window) return 'D' + bytesToB64url(await pipeBytes(new TextEncoder().encode(json), new CompressionStream('deflate-raw'))); } catch (e) { /* 아래 방식으로 압축 */ }
+  return 'L' + bytesToB64url(LZString.compressToUint8Array(json));
+}
+async function decodeShare(code) {
+  const s = safeDecodeURI(code).replace(/\s/g, ''), kind = s[0], bytes = b64urlToBytes(s.slice(1));
+  let json;
+  if (kind === 'D') {
+    if (!('DecompressionStream' in window)) throw new Error('old-browser');
+    json = new TextDecoder().decode(await pipeBytes(bytes, new DecompressionStream('deflate-raw')));
+  } else if (kind === 'L') json = LZString.decompressFromUint8Array(bytes);
+  else throw new Error('unknown');
+  return unpackTrip(JSON.parse(json));
+}
+/* 예전 형식(#share=) 링크: 메신저가 '+'를 띄어쓰기나 %2B로 바꿔도 읽도록 몇 가지로 풀어 본다 */
+function decodeShareV1(code) {
+  const d = safeDecodeURI(code);
+  for (const c of [code, d, code.replace(/ /g, '+'), d.replace(/ /g, '+')]) {
+    try { const j = LZString.decompressFromEncodedURIComponent(c); if (j) return JSON.parse(j); } catch (e) { /* 다음 방식 */ }
+  }
+  throw new Error('bad');
+}
+async function makeShare() {
   if (typeof LZString === 'undefined') return toast('압축 도구를 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.');
-  const url = `${location.href.split('#')[0]}#share=${LZString.compressToEncodedURIComponent(JSON.stringify(T()))}`;
+  let url;
+  try {
+    const code = await encodeShare(T());
+    const back = await decodeShare(code);
+    /* 만든 링크를 바로 다시 풀어 지금 일정과 같은지 확인한다 */
+    if (JSON.stringify(normTrip(back)) !== JSON.stringify(normTrip(T()))) throw new Error('mismatch');
+    url = `${location.href.split('#')[0]}#t=${code}`;
+  } catch (e) { return toast('공유 링크를 만들지 못했습니다. 더보기의 백업 파일 저장으로 보내 주세요.'); }
   const isFile = location.protocol === 'file:';
   openModal(`${mHead('공유 링크')}<div class="mbody">
     <p class="small muted">이 링크를 연 사람은 지금 일정(장소 ${T().places.length}곳, 일정 ${T().schedule.length}개)을 자기 기기로 가져올 수 있습니다. 링크 길이 ${url.length.toLocaleString()}자.</p>
+    ${url.length > 2000 ? '<p class="note warn">링크가 깁니다. 메신저에서 링크가 잘려 열리지 않으면 백업 파일 저장으로 파일을 보내 주세요.</p>' : ''}
     ${isFile ? '<p class="note warn">지금은 컴퓨터의 파일로 열려 있어서 이 링크는 다른 기기에서 열리지 않습니다. 파일을 웹 주소로 올린 뒤 그 주소에서 링크를 만들어 주세요. 같은 컴퓨터 안에서는 백업 파일을 쓰세요.</p>' : ''}
     <textarea class="linkbox" id="shareUrl" rows="4" readonly>${esc(url)}</textarea></div>
     <div class="mf"><span class="sp"></span>${navigator.share ? `<button class="btn" id="sh-share">${icon('share')}보내기</button>` : ''}<button class="btn primary" id="sh-copy">${icon('copy')}복사</button></div>`, c => {
@@ -1760,14 +1799,14 @@ function openImport(raw, via) {
     if (ex) $('#im-rep', c).onclick = () => { const snap = JSON.stringify(ex); S.trips[t.id] = t; closeModal(); switchTrip(t.id); toast('받은 일정으로 바꿨습니다.', { label: '되돌리기', fn: () => restore(snap) }); };
   });
 }
-function checkHashImport() {
-  const m = location.hash.match(/^#share=(.+)$/); if (!m) return;
+async function checkHashImport() {
+  const m = location.hash.match(/^#(t|share)=([\s\S]+)$/); if (!m) return;
   history.replaceState(null, '', location.pathname + location.search);
-  try {
-    const json = LZString.decompressFromEncodedURIComponent(m[1]);
-    if (!json) throw new Error('empty');
-    openImport(JSON.parse(json), '공유 링크');
-  } catch (e) { toast('공유 링크를 읽지 못했습니다. 링크가 중간에 잘리지 않았는지 확인해 주세요.'); }
+  try { openImport(m[1] === 't' ? await decodeShare(m[2]) : decodeShareV1(m[2]), '공유 링크'); }
+  catch (e) {
+    toast(e.message === 'old-browser' ? '이 브라우저에서는 이 링크를 열 수 없습니다. Safari나 Chrome 최신판으로 열어 주세요.'
+      : '공유 링크를 읽지 못했습니다. 링크가 중간에 잘렸을 수 있으니, 보낸 사람에게 백업 파일로 다시 받아 주세요.');
+  }
 }
 function switchTrip(id) {
   if (!S.trips[id]) return;
