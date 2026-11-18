@@ -91,7 +91,7 @@ function saveSched() {
   if (s == null || e == null) { err.hidden = false; err.textContent = '시작과 종료 시각을 넣어 주세요.'; return; }
   if (e <= s) { err.hidden = false; err.textContent = '종료 시각이 시작 시각보다 늦어야 합니다.'; return; }
   const t = T();
-  if (o.id) { const x = t.schedule.find(z => z.id === o.id); if (x) Object.assign(x, { placeId: o.placeId, date: o.date, start: o.start, end: o.end, memo: o.memo }); }
+  if (o.id) { const x = t.schedule.find(z => z.id === o.id); if (x) Object.assign(x, { placeId: o.placeId, date: o.date, start: o.start, end: o.end, memo: o.memo, sample: false }); }
   else t.schedule.push({ id: uid(), placeId: o.placeId, date: o.date, start: o.start, end: o.end, memo: o.memo });
   closeModal();
   if (!UI.planAll) UI.planDay = o.date;

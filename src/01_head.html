@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="여행 플래너">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#eef2f1">
+<meta name="theme-color" content="#ffffff">
 <title>여행 플래너</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <style>
 /* 레이아웃: 지도 중심 앱 화면. 휴대폰은 위 제목줄 + 화면 + 아래 탭 막대, 넓은 화면은 왼쪽 지도 + 오른쪽 패널 */
 :root{
-  --bg:#eef2f1; --surface:#ffffff; --surface-2:#f4f7f6; --surface-3:#e2e9e7;
+  --bg:#ffffff; --surface:#ffffff; --surface-2:#f4f7f6; --surface-3:#e2e9e7;
   --ink:#13211e; --ink-2:#4a5c57; --ink-3:#7c8d88; --line:#d4dedb;
   --accent:#0d7457; --accent-ink:#ffffff; --accent-soft:#d6ede4;
   --warn:#a9520e; --warn-soft:#fbead9; --danger:#c42b3a; --danger-soft:#fbe4e6; --ok:#1d7647;
@@ -104,8 +104,11 @@ p{margin:0}
 .fld input,.fld select,.fld textarea,.hrow input,.cl-add input,.linkbox{width:100%;min-width:0;height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);font-size:16px}
 .fld textarea,.linkbox{height:auto;padding:10px 12px;resize:vertical}
 .fld input.bad,.hrow input.bad{border-color:var(--danger);background:var(--danger-soft)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+/* 아이폰의 날짜·시각 입력칸은 기본 최소 너비가 있어 칸 밖으로 넘친다. 기본 모양을 끄고 너비를 칸에 맞춘다 */
+.fld input[type="date"],.fld input[type="time"]{-webkit-appearance:none;appearance:none;display:block;max-width:100%;line-height:42px;text-align:left}
+.fld input[type="date"]::-webkit-date-and-time-value,.fld input[type="time"]::-webkit-date-and-time-value{text-align:left;margin:0}
 .err{color:var(--danger);font-size:14px;font-weight:600}
 .note{padding:10px 12px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
 .note.warn{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 35%,transparent);color:var(--ink)}

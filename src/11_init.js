@@ -138,11 +138,20 @@ function bindEvents() {
     const del = e.target.closest('[data-cldel]');
     if (del) { const snap = snapshot(); T().checklist = T().checklist.filter(c => c.id !== del.dataset.cldel); commit(); toast('준비물을 지웠습니다.', { label: '되돌리기', fn: () => restore(snap) }); return; }
     const th = e.target.closest('[data-theme-set]');
-    if (th) { S.ui.theme = th.dataset.themeSet; save(); applyTheme(); renderMore(); return; }
+    if (th) { S.ui.look = th.dataset.themeSet; save(); applyTheme(); renderMore(); return; }
     const a = e.target.closest('[data-action]'); if (!a) return;
     const act = a.dataset.action;
     if (act === 'share') makeShare();
     else if (act === 'export') exportBackup();
+    else if (act === 'add-sample-sched') {
+      const t = T(), ids = new Set(t.places.map(p => p.id));
+      const add = SEED_SCHEDULE.filter(s => ids.has(s.placeId)).map(s => Object.assign({}, s, { id: uid() }));
+      t.schedule.push(...add); UI.planDay = null; UI.ttInit = false; commit(); toast(`예시 일정 ${add.length}개를 시간표에 넣었습니다.`);
+    }
+    else if (act === 'del-sample-sched') {
+      const snap = snapshot(); T().schedule = T().schedule.filter(s => !s.sample); commit();
+      toast('예시 일정을 지웠습니다.', { label: '되돌리기', fn: () => restore(snap) });
+    }
     else if (act === 'new-trip') openNewTrip();
     else if (act === 'open-trip') switchTrip(a.dataset.tid);
     else if (act === 'set-center') { if (!map) return; const c = map.getCenter(); T().center = [+c.lat.toFixed(5), +c.lng.toFixed(5)]; T().zoom = map.getZoom(); commit(); toast('지금 지도 화면을 기본 위치로 정했습니다.'); }

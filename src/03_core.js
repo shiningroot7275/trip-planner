@@ -129,7 +129,7 @@ function normTrip(t) {
   o.places = (Array.isArray(t.places) ? t.places : []).map(normPlace).filter(Boolean);
   const ids = new Set(o.places.map(p => p.id));
   o.schedule = (Array.isArray(t.schedule) ? t.schedule : []).map(s => (s && ids.has(s.placeId) && isDate(s.date) && isHM(s.start) && isHM(s.end))
-    ? { id: str(s.id, 40) || uid(), placeId: s.placeId, date: s.date, start: s.start, end: s.end, memo: str(s.memo, 500) } : null).filter(Boolean);
+    ? { id: str(s.id, 40) || uid(), placeId: s.placeId, date: s.date, start: s.start, end: s.end, memo: str(s.memo, 500), sample: !!s.sample } : null).filter(Boolean);
   o.flights = (Array.isArray(t.flights) ? t.flights : []).map(normFlight).filter(Boolean);
   o.checklist = (Array.isArray(t.checklist) ? t.checklist : []).map(c => c ? { id: str(c.id, 40) || uid(), text: str(c.text, 100), done: !!c.done } : null).filter(Boolean);
   o.updatedAt = Number(t.updatedAt) || 0;

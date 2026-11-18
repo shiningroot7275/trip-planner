@@ -3,7 +3,7 @@
 function tripRange(t) { const n = tripDays(t).length; return `${md(t.start)}–${md(t.end)} · ${n > 1 ? `${n - 1}박 ${n}일` : '당일'}`; }
 function renderMore() {
   const t = T(), done = t.checklist.filter(c => c.done).length, total = t.checklist.length;
-  const samples = t.places.filter(p => p.sample).length, theme = S.ui.theme || 'auto';
+  const samples = t.places.filter(p => p.sample).length, sampleSched = t.schedule.filter(s => s.sample).length, theme = S.ui.look || 'light';
   $('#moreBody').innerHTML = `
   <section class="card"><div class="ch"><h2>준비물</h2><span>${done}/${total}</span></div>
     <div class="bar"><i style="width:${total ? done / total * 100 : 0}%"></i></div>
@@ -27,9 +27,11 @@ function renderMore() {
     <div class="trips">${Object.values(S.trips).sort((a, b) => a.start.localeCompare(b.start)).map(x => `<div class="trip ${x.id === t.id ? 'cur' : ''}"><div><b>${esc(x.name)}</b><small>${tripRange(x)} · 장소 ${x.places.length}곳</small></div>
       ${x.id === t.id ? '<small>지금 여행</small>' : `<button class="btn sm" data-action="open-trip" data-tid="${x.id}">열기</button><button class="icon-btn sm" data-action="del-trip" data-tid="${x.id}" aria-label="${esc(x.name)} 지우기">${icon('trash')}</button>`}</div>`).join('')}</div>
     <button class="btn sm" data-action="new-trip" style="align-self:flex-start">${icon('plus')}새 여행 만들기</button>
+    ${t.id === SEED_TRIP.id && !sampleSched ? `<button class="btn sm" data-action="add-sample-sched" style="align-self:flex-start">${icon('cal')}예시 시간표 넣기</button>` : ''}
+    ${sampleSched ? `<button class="btn sm danger ghost" data-action="del-sample-sched" style="align-self:flex-start">${icon('trash')}예시 일정 ${sampleSched}개 지우기</button>` : ''}
     ${samples ? `<button class="btn sm danger ghost" data-action="del-samples" style="align-self:flex-start">${icon('trash')}예시 장소 ${samples}곳 지우기</button>` : ''}
   </section>
-  <section class="card"><h2>화면</h2><div class="seg" role="group" aria-label="화면 밝기">${[['auto', '기기 설정'], ['light', '밝게'], ['dark', '어둡게']].map(([k, l]) => `<button data-theme-set="${k}" class="${theme === k ? 'on' : ''}">${l}</button>`).join('')}</div></section>
+  <section class="card"><h2>화면</h2><div class="seg" role="group" aria-label="화면 밝기">${[['light', '밝게'], ['dark', '어둡게'], ['auto', '기기 설정']].map(([k, l]) => `<button data-theme-set="${k}" class="${theme === k ? 'on' : ''}">${l}</button>`).join('')}</div></section>
   <section class="card"><h2>쓰는 방법</h2><ol class="how">
     <li>지도 위 검색창에 장소 이름을 넣거나 지도를 길게 눌러 장소를 표시합니다.</li>
     <li>표시를 누르면 장소 정보가 나오고, 그 상태에서 다른 표시를 누르면 두 곳 사이 이동시간이 나옵니다.</li>
@@ -133,7 +135,7 @@ function openNewTrip() {
   });
 }
 function applyTheme() {
-  const th = S.ui.theme || 'auto';
+  const th = S.ui.look || 'light';
   if (th === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = th;
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#ffffff';

@@ -30,10 +30,12 @@ function flightCardHTML(f) {
       <div class="row3">${inp('label', '구분', 'text', 'maxlength="20" placeholder="가는 편"')}${inp('airline', '항공사', 'text', 'maxlength="40"')}${inp('no', '편명', 'text', 'maxlength="12" placeholder="예: OZ745" autocapitalize="characters"')}</div>
       <h4>출발</h4>
       <div class="row3">${inp('from.code', '공항 코드', 'text', 'maxlength="4" autocapitalize="characters"')}${inp('from.name', '공항 이름', 'text', 'maxlength="40"')}${inp('from.term', '터미널', 'text', 'maxlength="20"')}</div>
-      <div class="row3">${inp('depDate', '날짜', 'date')}${inp('depTime', '시각 (현지)', 'time')}${tzSel('from.tz', '시간대')}</div>
+      <div class="row2">${inp('depDate', '날짜', 'date')}${inp('depTime', '시각 (현지)', 'time')}</div>
+      ${tzSel('from.tz', '시간대')}
       <h4>도착</h4>
       <div class="row3">${inp('to.code', '공항 코드', 'text', 'maxlength="4" autocapitalize="characters"')}${inp('to.name', '공항 이름', 'text', 'maxlength="40"')}${inp('to.term', '터미널', 'text', 'maxlength="20"')}</div>
-      <div class="row3">${inp('arrDate', '날짜 (비우면 자동)', 'date')}${inp('arrTime', '시각 (현지)', 'time')}${tzSel('to.tz', '시간대')}</div>
+      <div class="row2">${inp('arrDate', '날짜 (비우면 자동)', 'date')}${inp('arrTime', '시각 (현지)', 'time')}</div>
+      ${tzSel('to.tz', '시간대')}
       ${inp('memo', '메모 (좌석, 수하물 등)', 'text', 'maxlength="300"')}
       <div class="foot"><button type="button" class="btn danger ghost sm" data-action="del-flight" data-fid="${f.id}">${icon('trash')}이 항공편 삭제</button></div>
     </div></article>`;

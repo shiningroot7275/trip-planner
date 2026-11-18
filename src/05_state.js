@@ -1,8 +1,21 @@
 
 /* ===== 처음 여는 사람에게 보여 줄 홍콩 여행 ===== */
+/* 예시 시간표: 장소별 운영시간 안에서 지역을 묶어 짰다. 항공편 시각을 넣으면 공항 이동시간이 자동으로 이어진다 */
+const SEED_SCHEDULE = [
+  ['avenue-of-stars', '2027-01-21', '16:30', '18:00', '도착 뒤 숙소에 짐을 두고 산책 (항공편 시각에 맞춰 조정)'],
+  ['temple-street-night-market', '2027-01-21', '18:30', '20:30', '저녁 겸 야시장 구경'],
+  ['man-mo-temple', '2027-01-22', '09:00', '09:45', '이날은 음력 15일이라 07:00에 엽니다'],
+  ['mid-levels-escalator', '2027-01-22', '10:00', '10:30', '10:00부터 올라가는 방향으로 운행'],
+  ['maxims-palace-city-hall', '2027-01-22', '11:00', '12:30', '점심 딤섬'],
+  ['m-plus', '2027-01-22', '15:00', '18:30', '금요일은 22:00까지 엽니다'],
+  ['wong-tai-sin-temple', '2027-01-23', '10:00', '11:00', ''],
+  ['ladies-market', '2027-01-23', '12:00', '13:30', ''],
+  ['star-ferry-tst', '2027-01-23', '16:00', '16:30', '센트럴까지 건너가 보기 (토요일 위층 HK$6.5)'],
+  ['sky-terrace-428', '2027-01-24', '09:00', '10:30', '가든로드 승강장에서 피크트램(07:30 첫차)으로 올라가기'],
+].map(([placeId, date, start, end, memo], i) => ({ id: 'ex-' + (i + 1), placeId, date, start, end, memo, sample: true }));
 const SEED_TRIP = {
   id: 'hk-2027-01', name: '홍콩 여행', start: '2027-01-21', end: '2027-01-24', tz: 8, homeTz: 9,
-  center: [22.2905, 114.1640], zoom: 13, places: SEED_PLACES, schedule: [],
+  center: [22.2905, 114.1640], zoom: 13, places: SEED_PLACES, schedule: SEED_SCHEDULE,
   flights: [
     { id: 'f-out', label: '가는 편', from: { code: 'ICN', name: '인천', tz: 9 }, to: { code: 'HKG', name: '홍콩', tz: 8 }, depDate: '2027-01-21' },
     { id: 'f-in', label: '오는 편', from: { code: 'HKG', name: '홍콩', tz: 8 }, to: { code: 'ICN', name: '인천', tz: 9 }, depDate: '2027-01-24' },
@@ -17,6 +30,8 @@ let S = (function load() {
   if (raw && raw.trips && typeof raw.trips === 'object') {
     const trips = {};
     for (const k of Object.keys(raw.trips)) { try { const t = normTrip(raw.trips[k]); trips[t.id] = t; } catch (e) { /* 깨진 여행은 건너뛴다 */ } }
+    /* 한 번도 고치지 않은 예시 여행은 새 예시(시간표 포함)로 바꿔 준다 */
+    if (trips[SEED_TRIP.id] && !trips[SEED_TRIP.id].updatedAt) trips[SEED_TRIP.id] = normTrip(SEED_TRIP);
     if (Object.keys(trips).length) return { activeId: trips[raw.activeId] ? raw.activeId : Object.keys(trips)[0], trips, ui: raw.ui && typeof raw.ui === 'object' ? raw.ui : {} };
   }
   const t = normTrip(SEED_TRIP);
@@ -26,7 +41,7 @@ const T = () => S.trips[S.activeId];
 const UI = { tab: S.ui.tab || 'map', filter: 'all', planDay: null, planAll: false, mapDay: null, sheet: null, pick: null, me: null, trayOpen: S.ui.trayOpen !== false, ttInit: false };
 let saveWarned = false;
 function save() {
-  S.ui = { tab: UI.tab, trayOpen: UI.trayOpen, theme: S.ui.theme || 'auto' };
+  S.ui = { tab: UI.tab, trayOpen: UI.trayOpen, look: S.ui.look || 'light' };
   if (!lsSet(LS_KEY, S) && !saveWarned) { saveWarned = true; toast('이 브라우저에 저장하지 못했습니다. 공유 링크나 백업 파일로 보관해 주세요.'); }
 }
 function commit() { T().updatedAt = Date.now(); save(); renderAll(); }
