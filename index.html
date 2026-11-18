@@ -478,6 +478,8 @@ fieldset.hours legend small{display:block;font-weight:500;color:var(--ink-3)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 <script>
 'use strict';
+/* 빌드할 때 12_build.sh가 날짜·시각(YYYYMMDDHHMM)으로 바꿔 넣는다. 새 버전 확인에 쓴다 */
+const APP_BUILD = '202611190103';
 /* ===== 공용 도구 ===== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -1426,13 +1428,13 @@ function confirmBox(title, body, okLabel, onOk) {
     c => { $('#cf-ok', c).onclick = () => { closeModal(); onOk(); }; });
 }
 let toastTimer;
-function toast(msg, action) {
+function toast(msg, action, ms) {
   const el = $('#toast');
   el.innerHTML = `<span>${esc(msg)}</span>${action ? `<button type="button">${esc(action.label)}</button>` : ''}`;
   el.hidden = false;
   if (action) el.querySelector('button').onclick = () => { el.hidden = true; action.fn(); };
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, action ? 6500 : 3200);
+  toastTimer = setTimeout(() => { el.hidden = true; }, ms || (action ? 6500 : 3200));
 }
 
 /* ===== 시간표 일정 추가·수정 ===== */
@@ -1705,15 +1707,38 @@ function renderMore() {
     <li>도보·차량 시간: FOSSGIS가 운영하는 OSRM 경로 서버(routing.openstreetmap.de)의 도로망 계산값입니다. 차량은 교통 혼잡을 반영하지 않습니다.</li>
     <li>대중교통 시간(추정): 도보와 차량 경로거리 가운데 짧은 쪽을 평균 속도(가까운 거리 시속 약 20km, 먼 거리 최대 시속 40km)로 나눈 값에 역까지 걷기와 대기 10분을 더했습니다. 실제 노선과 시간은 구글 지도에서 확인하세요.</li>
     <li>시간표 이동시간의 추천 수단: 도보 15분 이하는 도보, 그보다 멀면 대중교통 추정치입니다.</li>
-    <li>예시 장소의 운영시간: 장소 정보마다 출처와 확인한 날(2026-11-18)을 적었습니다. 출발 전에 공식 사이트를 다시 확인하세요.</li></ul></section>`;
+    <li>예시 장소의 운영시간: 장소 정보마다 출처와 확인한 날(2026-11-18)을 적었습니다. 출발 전에 공식 사이트를 다시 확인하세요.</li>
+    <li>페이지 버전: ${/^\d{12}$/.test(APP_BUILD) ? `${APP_BUILD.slice(0, 4)}-${APP_BUILD.slice(4, 6)}-${APP_BUILD.slice(6, 8)} ${APP_BUILD.slice(8, 10)}:${APP_BUILD.slice(10, 12)}` : APP_BUILD}</li></ul></section>`;
 }
 function setCheck(id, fn) { const c = T().checklist.find(x => x.id === id); if (c) { fn(c); commit(); } }
 
 /* 공유 링크: 여행 자료 전체를 압축해 주소 뒤(#share=)에 붙인다. 서버로는 아무것도 보내지 않는다 */
 /* 공유 링크(#t=): 예시 장소는 이름표만 보내 길이를 줄이고, 압축한 자료를 URL에 안전한 글자(A-Z, a-z, 0-9, -, _)로만 적는다 */
-const SEED_PLACE_JSON = new Map(SEED_PLACES.map(p => { const n = normPlace(p); return [n.id, JSON.stringify(n)]; }));
-function packTrip(t) { const o = JSON.parse(JSON.stringify(t)); o.places = o.places.map(p => SEED_PLACE_JSON.get(p.id) === JSON.stringify(p) ? { ref: p.id } : p); return o; }
-function unpackTrip(o) { if (o && Array.isArray(o.places)) o.places = o.places.map(p => p && p.ref ? (SEED_PLACES.find(s => s.id === p.ref) || null) : p).filter(Boolean); return o; }
+/* 예시 장소는 이름표(ref)와 예시와 달라진 항목(d)만 보낸다. 받는 쪽은 자기 예시 자료에 달라진 항목을 덮어 복원한다 */
+const SEED_PLACE_OBJ = new Map(SEED_PLACES.map(p => { const n = normPlace(p); return [n.id, n]; }));
+const SEED_SCHED_JSON = new Map(SEED_SCHEDULE.map(x => [x.id, JSON.stringify(x)]));
+const SEED_CHECK_TEXT = new Map(SEED_TRIP.checklist.map(c => [c.id, c.text]));
+function packTrip(t) {
+  const o = JSON.parse(JSON.stringify(t));
+  o.places = o.places.map(p => {
+    const s = SEED_PLACE_OBJ.get(p.id); if (!s) return p;
+    const d = {}; for (const k of Object.keys(p)) if (JSON.stringify(p[k]) !== JSON.stringify(s[k])) d[k] = p[k];
+    return Object.keys(d).length ? { ref: p.id, d } : { ref: p.id };
+  });
+  o.schedule = o.schedule.map(x => SEED_SCHED_JSON.get(x.id) === JSON.stringify(x) ? { ref: x.id } : x);
+  o.checklist = o.checklist.map(c => SEED_CHECK_TEXT.get(c.id) === c.text ? { ref: c.id, done: c.done } : c);
+  return o;
+}
+function unpackTrip(o) {
+  if (o && Array.isArray(o.schedule)) o.schedule = o.schedule.map(x => x && x.ref ? (SEED_SCHEDULE.find(y => y.id === x.ref) || null) : x).filter(Boolean);
+  if (o && Array.isArray(o.checklist)) o.checklist = o.checklist.map(c => c && c.ref ? (SEED_CHECK_TEXT.has(c.ref) ? { id: c.ref, text: SEED_CHECK_TEXT.get(c.ref), done: !!c.done } : null) : c).filter(Boolean);
+  if (o && Array.isArray(o.places)) o.places = o.places.map(p => {
+    if (!p || !p.ref) return p;
+    const s = SEED_PLACE_OBJ.get(p.ref);
+    return s ? Object.assign({}, s, p.d || {}) : (p.d ? Object.assign({ id: p.ref }, p.d) : null);
+  }).filter(Boolean);
+  return o;
+}
 function bytesToB64url(b) { let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
 function b64urlToBytes(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const bin = atob(s), b = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i); return b; }
 const pipeBytes = (bytes, stream) => new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer().then(a => new Uint8Array(a));
@@ -1743,13 +1768,15 @@ function decodeShareV1(code) {
 }
 async function makeShare() {
   if (typeof LZString === 'undefined') return toast('압축 도구를 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.');
+  /* 예전 버전 화면에서 링크를 만들면 받는 사람이 못 열 수 있으니, 새 버전이 있으면 먼저 새로 고치게 한다 */
+  if (await checkUpdate()) return openModal(`${mHead('새로 고친 뒤 링크를 만들어 주세요')}<div class="mbody"><p>지금 화면은 예전 버전입니다. 새로 고친 뒤 공유 링크를 만들어야 받는 사람이 제대로 열 수 있습니다. 일정은 그대로 남습니다.</p></div><div class="mf"><span class="sp"></span><button class="btn primary" id="up-reload">새로 고침</button></div>`, c => { $('#up-reload', c).onclick = reloadToNewest; });
   let url;
   try {
     const code = await encodeShare(T());
     const back = await decodeShare(code);
     /* 만든 링크를 바로 다시 풀어 지금 일정과 같은지 확인한다 */
     if (JSON.stringify(normTrip(back)) !== JSON.stringify(normTrip(T()))) throw new Error('mismatch');
-    url = `${location.href.split('#')[0]}#t=${code}`;
+    url = `${location.href.split('#')[0].split('?')[0]}#t=${code}`;
   } catch (e) { return toast('공유 링크를 만들지 못했습니다. 더보기의 백업 파일 저장으로 보내 주세요.'); }
   const isFile = location.protocol === 'file:';
   openModal(`${mHead('공유 링크')}<div class="mbody">
@@ -2033,6 +2060,19 @@ function makeIcon() {
   } catch (e) { /* 아이콘 없이 진행 */ }
 }
 
+/* ===== 새 버전 확인: 휴대폰 브라우저가 예전 페이지를 계속 쓰지 않도록 한다 ===== */
+let newerBuild = null;
+async function checkUpdate() {
+  if (!/^https?:$/.test(location.protocol) || !/^\d{12}$/.test(APP_BUILD)) return null;
+  try {
+    const r = await fetch(location.pathname + '?check=' + Date.now(), { cache: 'no-store' });
+    const m = (await r.text()).match(/const APP_BUILD = '(\d{12})'/);
+    if (m && m[1] > APP_BUILD) { newerBuild = m[1]; toast('새 버전이 나왔습니다. 새로 고친 뒤 써 주세요.', { label: '새로 고침', fn: reloadToNewest }, 30000); }
+  } catch (e) { /* 연결이 없으면 다음에 다시 확인한다 */ }
+  return newerBuild;
+}
+function reloadToNewest() { location.replace(location.pathname + '?v=' + (newerBuild || Date.now()) + location.hash); }
+
 /* ===== 시작 ===== */
 applyTheme();
 initMap();
@@ -2043,6 +2083,9 @@ renderFlights();
 makeIcon();
 setInterval(() => { tick(); if (UI.tab === 'plan' && !DND.active && tripDays().includes(tripNow().date)) renderPlan(); }, 30000);
 checkHashImport();
+setTimeout(checkUpdate, 1500);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkUpdate(); });
+window.addEventListener('pageshow', e => { if (e.persisted) checkUpdate(); });
 </script>
 </body>
 </html>

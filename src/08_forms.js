@@ -12,13 +12,13 @@ function confirmBox(title, body, okLabel, onOk) {
     c => { $('#cf-ok', c).onclick = () => { closeModal(); onOk(); }; });
 }
 let toastTimer;
-function toast(msg, action) {
+function toast(msg, action, ms) {
   const el = $('#toast');
   el.innerHTML = `<span>${esc(msg)}</span>${action ? `<button type="button">${esc(action.label)}</button>` : ''}`;
   el.hidden = false;
   if (action) el.querySelector('button').onclick = () => { el.hidden = true; action.fn(); };
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.hidden = true; }, action ? 6500 : 3200);
+  toastTimer = setTimeout(() => { el.hidden = true; }, ms || (action ? 6500 : 3200));
 }
 
 /* ===== 시간표 일정 추가·수정 ===== */

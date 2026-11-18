@@ -190,6 +190,19 @@ function makeIcon() {
   } catch (e) { /* 아이콘 없이 진행 */ }
 }
 
+/* ===== 새 버전 확인: 휴대폰 브라우저가 예전 페이지를 계속 쓰지 않도록 한다 ===== */
+let newerBuild = null;
+async function checkUpdate() {
+  if (!/^https?:$/.test(location.protocol) || !/^\d{12}$/.test(APP_BUILD)) return null;
+  try {
+    const r = await fetch(location.pathname + '?check=' + Date.now(), { cache: 'no-store' });
+    const m = (await r.text()).match(/const APP_BUILD = '(\d{12})'/);
+    if (m && m[1] > APP_BUILD) { newerBuild = m[1]; toast('새 버전이 나왔습니다. 새로 고친 뒤 써 주세요.', { label: '새로 고침', fn: reloadToNewest }, 30000); }
+  } catch (e) { /* 연결이 없으면 다음에 다시 확인한다 */ }
+  return newerBuild;
+}
+function reloadToNewest() { location.replace(location.pathname + '?v=' + (newerBuild || Date.now()) + location.hash); }
+
 /* ===== 시작 ===== */
 applyTheme();
 initMap();
@@ -200,6 +213,9 @@ renderFlights();
 makeIcon();
 setInterval(() => { tick(); if (UI.tab === 'plan' && !DND.active && tripDays().includes(tripNow().date)) renderPlan(); }, 30000);
 checkHashImport();
+setTimeout(checkUpdate, 1500);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkUpdate(); });
+window.addEventListener('pageshow', e => { if (e.persisted) checkUpdate(); });
 </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 'use strict';
+/* 빌드할 때 12_build.sh가 날짜·시각(YYYYMMDDHHMM)으로 바꿔 넣는다. 새 버전 확인에 쓴다 */
+const APP_BUILD = '__BUILD__';
 /* ===== 공용 도구 ===== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
