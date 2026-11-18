@@ -226,49 +226,106 @@ function routeFromMe(pid) {
 /* ===== 장소 검색 (OpenStreetMap Nominatim, 버튼을 누를 때만 1초 간격 이상으로 보낸다) ===== */
 let lastNomi = 0, searchRes = [];
 async function nomiWait() { const w = 1100 - (Date.now() - lastNomi); if (w > 0) await sleep(w); lastNomi = Date.now(); }
+/* OpenStreetMap 장소 종류의 국문 이름 (검색 결과에 붙이는 표시) */
+const OSM_TYPE_KO = {
+  restaurant: '식당', fast_food: '패스트푸드', food_court: '푸드코트', cafe: '카페', bar: '바', pub: '펍', bakery: '베이커리', ice_cream: '아이스크림', confectionery: '과자점',
+  museum: '박물관', gallery: '미술관', attraction: '명소', viewpoint: '전망대', theme_park: '테마파크', zoo: '동물원', aquarium: '수족관', artwork: '예술 작품', monument: '기념물', memorial: '기념물',
+  park: '공원', garden: '정원', nature_reserve: '자연보호구역', beach: '해변', peak: '산봉우리', place_of_worship: '종교 시설', temple: '사원', shrine: '사당',
+  theatre: '공연장', arts_centre: '예술 공간', cinema: '영화관', library: '도서관',
+  mall: '쇼핑몰', department_store: '백화점', supermarket: '슈퍼마켓', convenience: '편의점', marketplace: '시장', clothes: '옷 가게', gift: '기념품 가게',
+  hotel: '호텔', hostel: '호스텔', guest_house: '게스트하우스', apartment: '숙소', motel: '모텔',
+  station: '역', halt: '역', subway_entrance: '지하철 출구', tram_stop: '트램 정류장', bus_stop: '버스 정류장', bus_station: '버스 터미널', platform: '승강장', stop_position: '정류장',
+  ferry_terminal: '선착장', aerodrome: '공항', terminal: '터미널',
+  quarter: '지역', suburb: '지역', neighbourhood: '동네', city: '도시', town: '도시', village: '마을',
+  residential: '도로', pedestrian: '보행로', footway: '보행로', road: '도로', building: '건물', yes: '건물', dormitory: '건물', commercial: '상업 건물',
+};
+const osmTypeLabel = x => OSM_TYPE_KO[x.type] || CATS[osmCat(x)].label;
 function osmCat(x) {
   const c = x.category, t = x.type;
-  if (c === 'amenity' && /restaurant|fast_food|food_court|bar|pub/.test(t)) return 'food';
-  if (c === 'amenity' && /cafe|ice_cream/.test(t)) return 'cafe';
-  if (c === 'shop' || (c === 'amenity' && t === 'marketplace')) return 'shop';
-  if (c === 'tourism' && /hotel|hostel|guest_house|apartment|motel/.test(t)) return 'hotel';
-  if (c === 'tourism' || c === 'historic' || c === 'leisure' || (c === 'amenity' && /place_of_worship|theatre|arts_centre/.test(t))) return 'sight';
-  if (c === 'railway' || c === 'aeroway' || c === 'public_transport' || (c === 'amenity' && /ferry_terminal|bus_station/.test(t))) return 'transport';
+  if (/^(restaurant|fast_food|food_court|bar|pub|biergarten)$/.test(t)) return 'food';
+  if (/^(cafe|ice_cream|bakery|confectionery|pastry|tea|coffee)$/.test(t)) return 'cafe';
+  if (/^(hotel|hostel|guest_house|apartment|motel)$/.test(t)) return 'hotel';
+  if (/^(museum|gallery|attraction|viewpoint|theme_park|zoo|aquarium|artwork|monument|memorial|castle|ruins|park|garden|nature_reserve|beach|peak|place_of_worship|temple|shrine|theatre|arts_centre)$/.test(t) || c === 'tourism' || c === 'historic') return 'sight';
+  if (c === 'shop' || /^(marketplace|mall|department_store)$/.test(t)) return 'shop';
+  if (c === 'railway' || c === 'aeroway' || c === 'public_transport' || /^(ferry_terminal|bus_station|bus_stop|platform|subway_entrance|station)$/.test(t)) return 'transport';
+  if (c === 'leisure') return 'sight';
   return 'etc';
 }
-/* OpenStreetMap 운영시간 표기 가운데 단순한 형식만 읽는다. 못 읽으면 null */
-function parseOSMHours(s) {
-  if (!s) return null;
-  s = s.trim();
-  const D = { Mo: 1, Tu: 2, We: 3, Th: 4, Fr: 5, Sa: 6, Su: 0 };
-  if (s === '24/7') return Array.from({ length: 7 }, () => [['00:00', '24:00']]);
-  const out = Array(7).fill(null);
-  for (const rule of s.split(';').map(x => x.trim()).filter(Boolean)) {
-    let days = [0, 1, 2, 3, 4, 5, 6], val = rule;
-    const m = rule.match(/^((?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?(?:,(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?)*)\s+(.+)$/);
+/* OSM-HOURS-START */
+/* OpenStreetMap 운영시간 표기(opening_hours)를 요일별 시간으로 읽는다.
+   - 공휴일(PH, SH) 규칙은 요일에서 빼고 참고 문구로 남긴다
+   - 따옴표 안의 설명은 참고 문구로 옮긴다
+   - 표기에 나오지 않는 요일은 휴무로 본다 (OpenStreetMap 표기 규칙)
+   - 월·날짜 지정, 일출·일몰처럼 읽을 수 없는 표기가 하나라도 있으면 hours를 null로 둔다 */
+function parseOSMHours(raw) {
+  const res = { hours: null, notes: [], holiday: false };
+  if (!raw || typeof raw !== 'string') return res;
+  const D = { Mo: 1, Tu: 2, We: 3, Th: 4, Fr: 5, Sa: 6, Su: 0 }, DAY = '(?:Mo|Tu|We|Th|Fr|Sa|Su)';
+  const SEL = new RegExp(`^((?:(?:${DAY}(?:-${DAY})?|PH|SH)\\s*,\\s*)*(?:${DAY}(?:-${DAY})?|PH|SH))(?:\\s+|$)`);
+  const s = raw.replace(/"([^"]*)"/g, (_, c) => { c = c.trim(); if (c && !res.notes.includes(c)) res.notes.push(c); return ' '; }).split('||')[0];
+  const out = Array(7).fill(undefined);
+  for (let rule of s.split(';')) {
+    rule = rule.replace(/\bopen\b/gi, ' ').replace(/\s+/g, ' ').trim();
+    if (!rule) continue;
+    let days = [0, 1, 2, 3, 4, 5, 6];
+    const m = rule.match(SEL);
     if (m) {
       days = [];
-      for (const part of m[1].split(',')) { const [a, b] = part.split('-'); if (!b) { days.push(D[a]); continue; } let i = D[a]; for (let k = 0; k < 7; k++) { days.push(i); if (i === D[b]) break; i = (i + 1) % 7; } }
-      val = m[2].trim();
-    } else if (!/^\d/.test(rule) && !/^(off|closed)$/i.test(rule)) return null;
-    let ranges = [];
-    if (!/^(off|closed)$/i.test(val)) {
-      for (const tt of val.split(',')) { const r = tt.trim().match(/^(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})$/); if (!r) return null; ranges.push([`${pad(+r[1])}:${r[2]}`, `${pad(+r[3])}:${r[4]}`]); }
+      for (const part of m[1].split(',').map(x => x.trim())) {
+        if (part === 'PH' || part === 'SH') { res.holiday = true; continue; }
+        const [a, b] = part.split('-');
+        if (!b) { days.push(D[a]); continue; }
+        let i = D[a];
+        for (let k = 0; k < 7; k++) { days.push(i); if (i === D[b]) break; i = (i + 1) % 7; }
+      }
+      rule = rule.slice(m[0].length).trim();
+    }
+    let ranges;
+    if (/^(off|closed)$/i.test(rule)) ranges = [];
+    else if (rule === '24/7') ranges = [['00:00', '24:00']];
+    else if (/^unknown$/i.test(rule)) ranges = null;
+    else {
+      ranges = [];
+      for (const tt of rule.split(',')) {
+        const r = tt.trim().match(/^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/);
+        if (!r || +r[1] > 24 || +r[3] > 48) return res;
+        const h2 = +r[3] > 24 ? +r[3] - 24 : +r[3];
+        ranges.push([`${pad(+r[1])}:${r[2]}`, `${pad(h2)}:${r[4]}`]);
+      }
     }
     days.forEach(d => { out[d] = ranges; });
   }
-  return out;
+  if (out.every(v => v === undefined)) return res;
+  res.hours = out.map(v => v === undefined ? [] : v);
+  return res;
 }
+/* OSM-HOURS-END */
+const CUISINE_KO = {
+  chinese: '중식', cantonese: '광둥식', hong_kong: '홍콩식', dim_sum: '딤섬', noodle: '국수', noodles: '국수', congee: '죽', roast: '구이', barbecue: '바비큐', hot_pot: '훠궈',
+  seafood: '해산물', japanese: '일식', sushi: '스시', ramen: '라멘', korean: '한식', thai: '태국식', vietnamese: '베트남식', indian: '인도식', italian: '이탈리아식', french: '프랑스식',
+  american: '미국식', burger: '버거', pizza: '피자', sandwich: '샌드위치', coffee_shop: '커피', tea: '차', bubble_tea: '버블티', dessert: '디저트', cake: '케이크', bakery: '베이커리',
+  ice_cream: '아이스크림', vegetarian: '채식', regional: '지역 음식',
+};
+const cuisineKo = s => s.split(';').map(x => x.trim()).filter(Boolean).map(x => CUISINE_KO[x] || x.replace(/_/g, ' ')).join(', ');
+/* 검색 결과(또는 지도에서 고른 자리)의 OpenStreetMap 정보로 장소 입력 칸을 채운다 */
 function fromOSM(x, lat, lng) {
   const nd = x.namedetails || {}, ex = x.extratags || {};
   const name = x.name || (x.display_name || '').split(',')[0] || '';
-  const hours = parseOSMHours(ex.opening_hours);
+  const oh = parseOSMHours(ex.opening_hours);
+  const notes = [];
+  if (oh.notes.length) notes.push(`OpenStreetMap 설명: ${oh.notes.join(' / ')}.`);
+  if (oh.holiday) notes.push('공휴일 운영시간은 따로 정해져 있습니다.');
+  if (ex.opening_hours) notes.push(`OpenStreetMap 원래 표기: ${ex.opening_hours}`);
+  const memo = [], tel = ex.phone || ex['contact:phone'];
+  if (tel) memo.push(`전화: ${tel}`);
+  if (ex.cuisine) memo.push(`음식 종류: ${cuisineKo(ex.cuisine)}`);
   return {
     name: (nd['name:ko'] || name).slice(0, 80), nameLocal: (nd['name:en'] || nd.name || '').slice(0, 120), cat: osmCat(x),
-    lat: +(lat ?? x.lat), lng: +(lng ?? x.lon), addr: (x.display_name || '').slice(0, 200), hours,
-    hoursNote: ex.opening_hours && !hours ? `OpenStreetMap 표기: ${ex.opening_hours}` : '',
-    verify: hours ? 'other' : 'none', source: hours ? 'https://www.openstreetmap.org/' + (x.osm_type || 'node') + '/' + (x.osm_id || '') : '',
-    url: safeUrl(ex.website || ex['contact:website'] || ''),
+    lat: +(lat ?? x.lat), lng: +(lng ?? x.lon), addr: (x.display_name || '').slice(0, 200), hours: oh.hours,
+    hoursNote: notes.join(' ').slice(0, 600),
+    verify: oh.hours ? 'other' : 'none', checked: oh.hours ? localToday() : '',
+    source: ex.opening_hours ? `https://www.openstreetmap.org/${x.osm_type || 'node'}/${x.osm_id || ''}` : '',
+    url: safeUrl(ex.website || ex['contact:website'] || ''), memo: memo.join('\n').slice(0, 1000),
   };
 }
 async function doSearch(q) {
@@ -281,12 +338,20 @@ async function doSearch(q) {
   if (navigator.onLine === false) { box.innerHTML = localHTML + `<p class="sr-msg">인터넷에 연결되어 있지 않아 새 장소를 찾을 수 없습니다.</p>`; return; }
   try {
     await nomiWait();
-    const b = map ? map.getBounds().pad(0.5) : null;
-    const vb = b ? `&viewbox=${b.getWest()},${b.getNorth()},${b.getEast()},${b.getSouth()}` : '';
+    /* 지금 보이는 지도 범위를 우선해 찾는다. 지도가 숨겨져 있거나 너무 넓으면 범위 없이 찾는다 */
+    const b = map && map.getSize().x > 0 ? map.getBounds().pad(0.5) : null;
+    const w = b && clamp(b.getWest(), -180, 180), e = b && clamp(b.getEast(), -180, 180), n = b && clamp(b.getNorth(), -85, 85), s = b && clamp(b.getSouth(), -85, 85);
+    const vb = b && e > w && n > s ? `&viewbox=${w.toFixed(5)},${n.toFixed(5)},${e.toFixed(5)},${s.toFixed(5)}` : '';
     const r = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=8&extratags=1&namedetails=1&accept-language=ko,en${vb}&q=${encodeURIComponent(q)}`);
-    searchRes = await r.json();
+    const data = await r.json();
+    if (!Array.isArray(data)) throw new Error('search error');
+    searchRes = data;
     box.innerHTML = localHTML + `<p class="sr-sec">새 장소 추가</p>` + (searchRes.length
-      ? searchRes.map((x, i) => `<button class="sr" data-sr="${i}"><b>${esc(fromOSM(x).name)}</b><small>${esc(CATS[osmCat(x)].label)} · ${esc(x.display_name)}</small></button>`).join('')
+      ? searchRes.map((x, i) => {
+        const ex = x.extratags || {};
+        const tags = `<i>${esc(osmTypeLabel(x))}</i>${ex.opening_hours ? '<i class="ok">운영시간 있음</i>' : ''}${ex.phone || ex['contact:phone'] ? '<i>전화번호 있음</i>' : ''}`;
+        return `<button class="sr" data-sr="${i}"><b>${esc(fromOSM(x).name)}</b><span class="sr-tags">${tags}</span><small>${esc(x.display_name)}</small></button>`;
+      }).join('')
       : `<p class="sr-msg">찾은 장소가 없습니다. 영어나 현지어 이름으로도 찾아보세요. 지도를 길게 누르면 그 자리에 바로 추가할 수 있습니다.</p>`)
       + `<p class="sr-attr">검색: OpenStreetMap Nominatim</p>`;
   } catch (e) {
