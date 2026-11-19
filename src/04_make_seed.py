@@ -1,8 +1,10 @@
 """홍콩 예시 장소 자료(JSON)를 플래너의 예시 자료(04_seed.js)로 바꾼다.
 
 좌표, 운영시간, 주소, 공식 사이트, 출처, 확인일은 원본 JSON 값을 그대로 옮긴다.
-국문 이름, 국문 운영시간 참고, 국문 요금 문구, 기본 머무는 시간만 아래 표에서 붙인다.
-사용: python -I 04_make_seed.py <원본 JSON 경로> <출력 JS 경로>
+첫 번째 원본(01, 처음 12곳)은 국문 이름, 국문 운영시간 참고, 요금 문구, 머무는 시간을 아래 KO 표에서 붙인다.
+두 번째부터의 원본(02~)은 국문 항목(name_ko, hours_note_ko, fee_ko, memo_ko, dur)을 원본 안에 함께 적는다.
+원본의 순서가 예시 장소 묶음(v)이 된다. 플래너는 이미 고친 일정에도 새 묶음만 한 번 넣어 준다(05_state.js).
+사용: python -I 04_make_seed.py <출력 JS 경로> <원본 JSON 경로> [<원본 JSON 경로> ...]
 """
 import json
 import sys
@@ -47,30 +49,57 @@ KO = {
         note="일요일·공휴일은 09:00부터 엽니다. 저녁 마감은 운영사 페이지 기준 23:00이며, 시티홀 안내 페이지(2022년 수정본)는 22:30입니다. 카트 딤섬은 점심에만 나온다는 2차 출처 정보가 있습니다. 전화 2521 1303",
         fee=""),
 }
-CAT = {"sight": "sight", "food": "food", "shop": "shop", "transport": "transport"}
+CAT = {k: k for k in ("sight", "food", "cafe", "bar", "shop", "transport")}
 
 
-def main(src, out):
-    with open(src, encoding="utf-8") as f:
-        rows = json.load(f)
-    places = []
-    for r in rows:
-        k = KO[r["id"]]
-        hours = [r["hours"][d] for d in DAYS]
-        verify = k.get("verify") or ("official" if r["verification"] == "official" else "other")
-        exc = [{"date": e["date"], "hours": e["hours"], "note": k.get("exc_note", "")} for e in r.get("date_exceptions", [])]
-        places.append({
-            "id": r["id"], "name": k["name"], "nameLocal": k["local"], "cat": CAT[r["category"]], "code": k.get("code", ""),
-            "lat": r["lat"], "lng": r["lng"], "addr": r["address_en"], "hours": hours, "exc": exc,
-            "hoursNote": k["note"], "verify": verify, "source": r["source_url"], "checked": r["accessed"],
-            "fee": k["fee"], "url": r["url"], "memo": f"중문 이름: {r['name_zh']}", "dur": k["dur"], "sample": True,
-        })
+def hours7(h):
+    return None if h is None else [h[d] for d in DAYS]
+
+
+def from_v1(r):
+    k = KO[r["id"]]
+    verify = k.get("verify") or ("official" if r["verification"] == "official" else "other")
+    exc = [{"date": e["date"], "hours": e["hours"], "note": k.get("exc_note", "")} for e in r.get("date_exceptions", [])]
+    return {
+        "id": r["id"], "name": k["name"], "nameLocal": k["local"], "cat": CAT[r["category"]], "code": k.get("code", ""),
+        "lat": r["lat"], "lng": r["lng"], "addr": r["address_en"], "hours": hours7(r["hours"]), "exc": exc,
+        "hoursNote": k["note"], "verify": verify, "source": r["source_url"], "checked": r["accessed"],
+        "fee": k["fee"], "url": r["url"], "memo": f"중문 이름: {r['name_zh']}", "dur": k["dur"], "sample": True,
+    }
+
+
+def from_ko(r):
+    memo = [r.get("memo_ko", "").strip()]
+    if r.get("name_zh"):
+        memo.append(f"중문 이름: {r['name_zh']}")
+    exc = [{"date": e["date"], "hours": e["hours"], "note": e.get("note_ko", "")} for e in r.get("date_exceptions", [])]
+    return {
+        "id": r["id"], "name": r["name_ko"], "nameLocal": r["name_local"], "cat": CAT[r["category"]], "code": "",
+        "lat": r["lat"], "lng": r["lng"], "addr": r["address_en"], "hours": hours7(r["hours"]), "exc": exc,
+        "hoursNote": r["hours_note_ko"], "verify": r["verification"] if r["verification"] in ("official", "other", "none") else "other",
+        "source": r["source_url"], "checked": r["accessed"], "fee": r.get("fee_ko", ""), "url": r["url"],
+        "memo": "\n".join(m for m in memo if m), "dur": r["dur"], "sample": True,
+    }
+
+
+def main(out, srcs):
+    places, seen = [], set()
+    for v, src in enumerate(srcs, start=1):
+        with open(src, encoding="utf-8") as f:
+            rows = json.load(f)
+        for r in rows:
+            p = from_v1(r) if v == 1 else from_ko(r)
+            if p["id"] in seen:
+                raise SystemExit(f"duplicate id: {p['id']}")
+            seen.add(p["id"])
+            p["v"] = v
+            places.append(p)
     with open(out, "w", encoding="utf-8") as f:
-        f.write("/* 홍콩 예시 장소: 04_make_seed.py가 원본 JSON에서 만든 파일 (직접 고치지 않는다) */\n")
+        f.write("/* 홍콩 예시 장소: 04_make_seed.py가 원본 JSON에서 만든 파일 (직접 고치지 않는다). v는 예시 장소 묶음 차례 */\n")
         lines = ",\n".join(" " + json.dumps(p, ensure_ascii=False) for p in places)
         f.write("const SEED_PLACES = [\n" + lines + "\n];\n")
     print(f"{len(places)} places written to {out}")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2:])

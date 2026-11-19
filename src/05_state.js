@@ -13,8 +13,10 @@ const SEED_SCHEDULE = [
   ['star-ferry-tst', '2027-01-23', '16:00', '16:30', '센트럴까지 건너가 보기 (토요일 위층 HK$6.5)'],
   ['sky-terrace-428', '2027-01-24', '09:00', '10:30', '가든로드 승강장에서 피크트램(07:30 첫차)으로 올라가기'],
 ].map(([placeId, date, start, end, memo], i) => ({ id: 'ex-' + (i + 1), placeId, date, start, end, memo, sample: true }));
+/* 예시 장소는 묶음(v)으로 늘어난다. 1 = 처음 12곳, 2 = 2026-11-20에 더한 맛집·명소 */
+const SEED_VER = Math.max(...SEED_PLACES.map(p => p.v || 1));
 const SEED_TRIP = {
-  id: 'hk-2027-01', name: '홍콩 여행', start: '2027-01-21', end: '2027-01-24', tz: 8, homeTz: 9,
+  id: 'hk-2027-01', name: '홍콩 여행', start: '2027-01-21', end: '2027-01-24', tz: 8, homeTz: 9, seedVer: SEED_VER,
   center: [22.2905, 114.1640], zoom: 13, places: SEED_PLACES, schedule: SEED_SCHEDULE,
   flights: [
     { id: 'f-out', label: '가는 편', from: { code: 'ICN', name: '인천', tz: 9 }, to: { code: 'HKG', name: '홍콩', tz: 8 }, depDate: '2027-01-21' },
@@ -24,6 +26,17 @@ const SEED_TRIP = {
     '멀티어댑터 (홍콩은 영국식 G형)', '데이터 로밍 또는 eSIM', '여행자 보험', '보조배터리'].map((text, i) => ({ id: 'c' + i, text, done: false })),
 };
 
+/* 이미 고친 홍콩 예시 여행에도 새 묶음의 예시 장소를 한 번만 넣어 준다.
+   seedVer보다 새 묶음만 넣으므로, 사용자가 지운 예시 장소는 다시 생기지 않는다. 일정과 고친 내용은 건드리지 않는다 */
+function addNewSeedPlaces(t) {
+  if (!t || t.id !== SEED_TRIP.id || t.seedVer >= SEED_VER) return 0;
+  const have = new Set(t.places.map(p => p.id));
+  const add = SEED_PLACES.filter(p => (p.v || 1) > t.seedVer && !have.has(p.id)).map(normPlace).filter(Boolean);
+  t.places.push(...add);
+  t.seedVer = SEED_VER;
+  return add.length;
+}
+let SEED_ADDED = 0;
 const LS_KEY = 'tripPlanner.v1', RT_KEY = 'tripPlanner.routes.v1';
 let S = (function load() {
   const raw = lsGet(LS_KEY);
@@ -32,6 +45,7 @@ let S = (function load() {
     for (const k of Object.keys(raw.trips)) { try { const t = normTrip(raw.trips[k]); trips[t.id] = t; } catch (e) { /* 깨진 여행은 건너뛴다 */ } }
     /* 한 번도 고치지 않은 예시 여행은 새 예시(시간표 포함)로 바꿔 준다 */
     if (trips[SEED_TRIP.id] && !trips[SEED_TRIP.id].updatedAt) trips[SEED_TRIP.id] = normTrip(SEED_TRIP);
+    else if (trips[SEED_TRIP.id]) SEED_ADDED = addNewSeedPlaces(trips[SEED_TRIP.id]);
     if (Object.keys(trips).length) return { activeId: trips[raw.activeId] ? raw.activeId : Object.keys(trips)[0], trips, ui: raw.ui && typeof raw.ui === 'object' ? raw.ui : {} };
   }
   const t = normTrip(SEED_TRIP);

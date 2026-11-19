@@ -42,6 +42,7 @@ const ICONS = {
   sight: '<path d="M3.5 8.5h3.2l1.8-2.6h7l1.8 2.6h3.2v10.6h-17z"/><circle cx="12" cy="13.6" r="3.4"/>',
   food: '<path d="M7 3v7.5M4.5 3v4.8a2.5 2.5 0 0 0 5 0V3M7 10.5V21M16.5 21V3c-2.2.8-3.5 3.6-3.5 7.2V13h3.5"/>',
   cafe: '<path d="M4.5 9.5h12v4.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16.5 11h1.6a2.4 2.4 0 0 1 0 4.8h-1.9M8.5 3.5v3M12.5 3.5v3"/>',
+  bar: '<path d="M4.5 4.5h15L12 13z"/><path d="M12 13v7M8 20.5h8M7.2 7.7h9.6"/>',
   shop: '<path d="M5 8h14l-1.2 12.5H6.2z"/><path d="M9 10V6.8a3 3 0 0 1 6 0V10"/>',
   hotel: '<path d="M3 19V6M3 15h18v4M21 15v-3.5A2.5 2.5 0 0 0 18.5 9H11v6"/><circle cx="7" cy="11.2" r="1.9"/>',
   transport: '<rect x="6" y="3" width="12" height="13.5" rx="3"/><path d="M6 10h12M9 13.3h.01M15 13.3h.01M8.5 16.5 6.5 21M15.5 16.5l2 4.5"/>',
@@ -81,6 +82,7 @@ const CATS = {
   sight: { label: '명소', color: '#178a6d', icon: 'sight', dur: 90 },
   food: { label: '식당', color: '#d4602a', icon: 'food', dur: 60 },
   cafe: { label: '카페·디저트', color: '#9a6a3e', icon: 'cafe', dur: 45 },
+  bar: { label: '바', color: '#7d45a8', icon: 'bar', dur: 90 },
   shop: { label: '쇼핑', color: '#c03a7b', icon: 'shop', dur: 60 },
   hotel: { label: '숙소', color: '#5258c8', icon: 'hotel', dur: 30 },
   transport: { label: '교통', color: '#2c70ad', icon: 'transport', dur: 30 },
@@ -134,6 +136,7 @@ function normTrip(t) {
     ? { id: str(s.id, 40) || uid(), placeId: s.placeId, date: s.date, start: s.start, end: s.end, memo: str(s.memo, 500), sample: !!s.sample } : null).filter(Boolean);
   o.flights = (Array.isArray(t.flights) ? t.flights : []).map(normFlight).filter(Boolean);
   o.checklist = (Array.isArray(t.checklist) ? t.checklist : []).map(c => c ? { id: str(c.id, 40) || uid(), text: str(c.text, 100), done: !!c.done } : null).filter(Boolean);
+  o.seedVer = Math.floor(num(t.seedVer, 1, 99, 1)); /* 이 여행에 넣어 준 예시 장소 묶음의 차례 (05_state.js의 addNewSeedPlaces) */
   o.updatedAt = Number(t.updatedAt) || 0;
   return o;
 }

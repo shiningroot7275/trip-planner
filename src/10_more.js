@@ -69,11 +69,15 @@ function packTrip(t) {
 function unpackTrip(o) {
   if (o && Array.isArray(o.schedule)) o.schedule = o.schedule.map(x => x && x.ref ? (SEED_SCHEDULE.find(y => y.id === x.ref) || null) : x).filter(Boolean);
   if (o && Array.isArray(o.checklist)) o.checklist = o.checklist.map(c => c && c.ref ? (SEED_CHECK_TEXT.has(c.ref) ? { id: c.ref, text: SEED_CHECK_TEXT.get(c.ref), done: !!c.done } : null) : c).filter(Boolean);
+  let unknown = 0;
   if (o && Array.isArray(o.places)) o.places = o.places.map(p => {
     if (!p || !p.ref) return p;
     const s = SEED_PLACE_OBJ.get(p.ref);
+    if (!s && !p.d) unknown++;
     return s ? Object.assign({}, s, p.d || {}) : (p.d ? Object.assign({ id: p.ref }, p.d) : null);
   }).filter(Boolean);
+  /* 이 페이지가 모르는 예시 장소가 있으면 더 새 버전에서 만든 링크다. 그대로 열면 장소가 빠지므로 새로 고치게 한다 */
+  if (unknown) throw new Error('newer');
   return o;
 }
 function bytesToB64url(b) { let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
@@ -147,6 +151,7 @@ function importFile(file) {
 }
 function openImport(raw, via) {
   let t; try { t = normTrip(raw); } catch (e) { return toast('일정 자료를 읽지 못했습니다.'); }
+  addNewSeedPlaces(t); /* 예전 버전에서 보낸 홍콩 예시 여행이면 새 예시 장소를 채운다 */
   const ex = S.trips[t.id];
   /* 이 기기에 같은 여행이 없거나, 있어도 한 번도 고치지 않은 예시 상태면 잃을 것이 없으므로 묻지 않고 바로 가져온다 */
   if (!ex || !ex.updatedAt) {
@@ -165,10 +170,14 @@ function openImport(raw, via) {
 }
 async function checkHashImport() {
   const m = location.hash.match(/^#(t|share)=([\s\S]+)$/); if (!m) return;
+  const hash = location.hash;
   history.replaceState(null, '', location.pathname + location.search);
   try { openImport(m[1] === 't' ? await decodeShare(m[2]) : decodeShareV1(m[2]), '공유 링크'); }
   catch (e) {
-    toast(e.message === 'old-browser' ? '이 브라우저에서는 이 링크를 열 수 없습니다. Safari나 Chrome 최신판으로 열어 주세요.'
+    /* 새 버전에서 만든 링크: 한 번만 최신 페이지로 다시 열어 본다 (?v=가 이미 있으면 되풀이하지 않는다) */
+    if (e.message === 'newer' && !/[?&]v=/.test(location.search)) return location.replace(location.pathname + '?v=' + Date.now() + hash);
+    toast(e.message === 'newer' ? '이 링크는 더 새 버전에서 만든 것입니다. 잠시 뒤 새로 고쳐 다시 열어 주세요.'
+      : e.message === 'old-browser' ? '이 브라우저에서는 이 링크를 열 수 없습니다. Safari나 Chrome 최신판으로 열어 주세요.'
       : '공유 링크를 읽지 못했습니다. 링크가 중간에 잘렸을 수 있으니, 보낸 사람에게 백업 파일로 다시 받아 주세요.');
   }
 }

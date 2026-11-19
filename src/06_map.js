@@ -242,7 +242,8 @@ const OSM_TYPE_KO = {
 const osmTypeLabel = x => OSM_TYPE_KO[x.type] || CATS[osmCat(x)].label;
 function osmCat(x) {
   const c = x.category, t = x.type;
-  if (/^(restaurant|fast_food|food_court|bar|pub|biergarten)$/.test(t)) return 'food';
+  if (/^(restaurant|fast_food|food_court)$/.test(t)) return 'food';
+  if (/^(bar|pub|biergarten)$/.test(t)) return 'bar';
   if (/^(cafe|ice_cream|bakery|confectionery|pastry|tea|coffee)$/.test(t)) return 'cafe';
   if (/^(hotel|hostel|guest_house|apartment|motel)$/.test(t)) return 'hotel';
   if (/^(museum|gallery|attraction|viewpoint|theme_park|zoo|aquarium|artwork|monument|memorial|castle|ruins|park|garden|nature_reserve|beach|peak|place_of_worship|temple|shrine|theatre|arts_centre)$/.test(t) || c === 'tourism' || c === 'historic') return 'sight';

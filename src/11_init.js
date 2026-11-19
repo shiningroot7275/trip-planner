@@ -212,6 +212,7 @@ setTab(UI.tab);
 renderFlights();
 makeIcon();
 setInterval(() => { tick(); if (UI.tab === 'plan' && !DND.active && tripDays().includes(tripNow().date)) renderPlan(); }, 30000);
+if (SEED_ADDED) { save(); renderAll(); toast(`새 예시 장소 ${SEED_ADDED}곳(맛집, 바, 명소)을 장소 목록에 넣었습니다.`, null, 6000); }
 checkHashImport();
 setTimeout(checkUpdate, 1500);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkUpdate(); });

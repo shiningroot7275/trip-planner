@@ -1,0 +1,1399 @@
+[
+ {
+  "id": "cheung-hing-kee-lock-rd",
+  "name_ko": "청흥키 (침사추이)",
+  "name_local": "Cheung Hing Kee Shanghai Pan Fried Buns (Tsim Sha Tsui)",
+  "name_zh": "祥興記上海生煎包（尖沙咀）",
+  "category": "food",
+  "lat": 22.29778,
+  "lng": 114.17162,
+  "coord_source": "OpenStreetMap node 4416615094 via Nominatim (2026-11-20): shop node; rounded to 5 decimals",
+  "address_en": "G/F, 48 Lock Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+  "url": "https://www.chkspb.com",
+  "hours": {
+   "Mon": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "09:00",
+     "21:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "미쉐린 가이드 홍콩판과 구글 등록 정보 모두 매일 09:00–21:00입니다. 운영사 홈페이지에는 지점별 영업시간이 없어 공식 자료로는 확인하지 못했습니다. 가기 전에 다시 확인하세요.",
+  "fee_ko": "",
+  "dur": 20,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 중국어 상호는 祥興記입니다. 운영사 메뉴: 기본, 새우, 마라, 검은 송로버섯, 게알(蟹粉) 생젠바오가 있고 기본 4개가 HK$44입니다. 미쉐린 가이드: 좌석이 없어 가게 밖 작은 탁자에서 서서 먹으며, 신용카드를 받습니다. 블로그 후기: 포장만 됩니다.",
+  "source_url": "https://guide.michelin.com/hk/en/hong-kong-region/hong-kong/restaurant/cheung-hing-kee-tsim-sha-tsui",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "Cheung Hing Kee Shanghai Pan Fried Buns, 48 Lock Road, Tsim Sha Tsui, Hong Kong",
+  "evidence": "(1) Operator site chkspb.com (opened in the built-in browser; WebFetch got HTTP 403): brand 香港祥興記上海生煎包 / 'Cheung Hing Kee Shanghai Pan Fried Buns'; first shop 2013 on Chuen Lung Street, Tsuen Wan; Michelin-recommended 2016, 2024, 2025, 2026. Contact page lists only the head office (Room 1018, Block B, Mei Wah Industrial Centre, 94 To Kwa Wan Road, tel 2915 0389); no branch list and no branch hours. Menu page chkspb.com/menu.php confirms Signature, Shrimp, Spicy and Numbing (mala), Black Truffle and Crab Roe buns; Signature 4 pcs HK$44 / 6 pcs HK$66. (2) MICHELIN Guide page (en and zh_HK): 'Cheung Hing Kee (Tsim Sha Tsui)' / 祥興記 (尖沙咀), 'GF, 48 Lock Road, Tsim Sha Tsui', Mon to Sun 09:00-21:00, +852 9844 2149, credit cards accepted, cuisine Street Food; zh_HK description says no seating, customers eat standing at small tables outside. The listing does not state a guide year. (3) Google search knowledge panel (viewed 2026-11-20): 'Cheung Hing Kee Shanghai Pan-fried Buns (Lock Road)', 香港九龍尖沙咀樂道48號, located in 華源大廈, +852 9844 2149, daily 09:00-21:00; matches Michelin. (4) Michelin article 'Behind the Bib' (18 Jul 2024): started 2012 on Chuen Lung Street, later moved to Lock Road as flagship (operator says 2013; minor conflict, irrelevant to hours). CORRECTION: the Chinese name in the brief (張興記) is wrong; the shop is 祥興記. DOUBTS: a web-search AI summary claimed the Michelin zh page shows Mon-Fri 09:00-19:00, Sat 10:00-18:00, Sun closed; fetching that page directly showed 09:00-21:00 every day, so the summary was wrong. Burpple mentions 'Shop 6A'; not confirmed, omitted. OpenRice page (r483856) returned 502/504 and could not be checked. Takeaway-only is from the blog; Michelin only says there are no seats."
+ },
+ {
+  "id": "ngau-ye-siu-jordan",
+  "name_ko": "牛爺燒 고기전병 (조던)",
+  "name_local": "Niu Ye Shao (Jordan)",
+  "name_zh": "牛爺燒土家鮮肉餅（佐敦）",
+  "category": "food",
+  "lat": 22.30508,
+  "lng": 114.17084,
+  "coord_source": "OpenStreetMap node 11253936069 via Nominatim (2026-11-20): address node of 20-24 Jordan Road (shop not mapped); rounded to 5 decimals",
+  "address_en": "G/F, Lucky House (鴻運大樓), 20-24 Jordan Road, Jordan, Kowloon, Hong Kong",
+  "url": "",
+  "hours": {
+   "Mon": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "09:00",
+     "23:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 자료를 찾지 못해 구글 지도 등록 정보(매일 09:00–23:30)를 넣었습니다. 가기 전에 다시 확인하세요.",
+  "fee_ko": "",
+  "dur": 15,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 정식 상호는 牛爺燒土家鮮肉餅이며, 주문하면 바로 구워 주는 중국 후난 지방식 고기 전병 가게입니다. 영어 표기는 배달 앱에 쓰인 Niu Ye Shao입니다. 구글 지도의 가게 소개 글: 카레 닭고기, 흑후추 소고기, 쏸차이 돼지고기, 부추 돼지고기 전병 등이 있습니다. 포장 위주 가게로 등록되어 있고, 결제 수단은 확인하지 못했습니다.",
+  "source_url": "https://www.google.com/search?q=%E7%89%9B%E7%88%BA%E7%87%92+%E4%BD%90%E6%95%A6%E5%BA%97",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "牛爺燒, Jordan Road, Jordan, Hong Kong",
+  "evidence": "No official website, Instagram or Facebook found for the brand. (1) Google search knowledge panel (viewed 2026-11-20): '牛爺燒（佐敦店）', address 'G/F, 鴻運大廈, 20-24 Jordan Road, Yau Ma Tei, Kowloon', phone +852 2709 3252, every day 09:00-23:30, takeaway pickup and delivery; owner-supplied description calls it the 4th Hong Kong branch and lists curry chicken, black-pepper beef, pickled-cabbage pork, chive pork and Tujia pork pies. (2) Google result snippet for OpenRice r1145437 (dated 2026-08-15): '牛爺燒土家鮮肉餅', 佐敦佐敦道22號鴻運大樓地舖, listed as a 黔菜(貴州) takeaway shop. The OpenRice page itself returned HTTP 502/504, so its hours were not cross-checked. (3) foodpanda result title '牛爺燒土家鮮肉餅(佐敦) Niu Ye Shao'; the Prince Edward foodpanda page also uses 'Niu Ye Shao'. This is the only English name found and is a delivery-platform romanisation, not confirmed as an official brand name. (4) HKET (29 Jul 2026), Ming Pao (2 Aug 2026, via snippet) and stockfisher.com.hk: three branches at Prince Edward Road West, Dundas Street Mong Kok (first shop, opened about Feb 2026) and 佐敦鴻運大廈; new shops being fitted out in Kwun Tong and Yau Ma Tei (502 Nathan Road). (5) Building: property sites (oneday.com.hk, okay.com, midland.com.hk) give 鴻運大樓 = 'Lucky House', 20-24 Jordan Road (also written 22 Jordan Road); the English building name comes only from these sites. Name variant 鴻運大廈 (Google) vs 鴻運大樓 (OpenRice, property sites). Payment methods unknown. If the OSM search by shop name finds nothing, search 'Lucky House, Jordan Road, Hong Kong'."
+ },
+ {
+  "id": "bakehouse-soho",
+  "name_ko": "베이크하우스 (소호점)",
+  "name_local": "Bakehouse (Soho)",
+  "name_zh": "",
+  "category": "cafe",
+  "lat": 22.28171,
+  "lng": 114.15319,
+  "coord_source": "OpenStreetMap way 1216100502 via Nominatim (2026-11-20): building at 5 Staunton Street (shop not mapped); rounded to 5 decimals",
+  "address_en": "G/F, 5 Staunton Street, Central, Hong Kong",
+  "url": "https://www.bakehouse.hk",
+  "hours": {
+   "Mon": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "08:00",
+     "21:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 홈페이지 기준 매일 08:00–21:00입니다. 구글 등록 정보도 같습니다.",
+  "fee_ko": "",
+  "dur": 20,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 대표 메뉴는 사워도우 에그타르트입니다. 운영사 홈페이지 기준 소호점은 포장만 됩니다.",
+  "source_url": "https://www.bakehouse.hk/locations",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Bakehouse, 5 Staunton Street, Central, Hong Kong",
+  "evidence": "(1) bakehouse.hk/locations (read with WebFetch and in the built-in browser, 2026-11-20): 'Soho / Takeaway only / Opening Hours Daily 08:00 - 21:00 / Address G/F, 5 Staunton Street, Central, Hong Kong'. No phone number and no closure or renovation notice on the page. Official Instagram linked from the site: instagram.com/bakehousehk (not opened). (2) Google knowledge panel: 香港島中環士丹頓街5號, daily 08:00-21:00 (matches). (3) Time Out and Liv Magazine articles from the 2020 opening give 07:00-19:00; these are outdated. No Chinese name appears anywhere on the official site, so name_zh is left empty."
+ },
+ {
+  "id": "silk-tst-k11",
+  "name_ko": "실크 밀크티 (침사추이 K11 Art Mall)",
+  "name_local": "Silk. (Tsim Sha Tsui, K11 Art Mall)",
+  "name_zh": "絲茶",
+  "category": "cafe",
+  "lat": 22.29764,
+  "lng": 114.17359,
+  "coord_source": "OpenStreetMap way 965355341 via Nominatim (2026-11-20): K11 Art Mall building (shop on B1 not mapped); rounded to 5 decimals",
+  "address_en": "Shop B122A, B1/F, K11 Art Mall, 18 Hanoi Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+  "url": "https://thesilktea.com/stores",
+  "hours": {
+   "Mon": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "11:30",
+     "22:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "K11 아트몰 매장 안내 기준 11:30–22:00이며 요일 구분은 없습니다. 운영사 주문 페이지에는 11:00–21:45, 구글 등록 정보에는 11:00–22:00으로 적혀 있어 자료마다 다릅니다. 11:30–21:45 사이에 가면 안전합니다.",
+  "fee_ko": "",
+  "dur": 15,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 홍콩식 밀크티를 바탕으로 한 버블티 가게이며 중국어 상호는 絲茶입니다. K11 아트몰 지하 1층 B122A호에 있습니다. 근처 K11 무세아와는 다른 건물이니 주의하세요. 운영사 주문 페이지의 첫 메뉴는 Smooth King(三重茶皇), HK$42입니다.",
+  "source_url": "https://hk.k11.com/taste/silk",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "K11 Art Mall, 18 Hanoi Road, Tsim Sha Tsui, Hong Kong",
+  "evidence": "(1) K11 Art Mall directory hk.k11.com/taste/silk (English) and hk.k11.com/zh-hk/taste/silk/ (Chinese, page title 絲茶): 'Silk.', Location B122A, B1/F, Opening Hours '11:30AM - 10PM' (no days given), Enquiries 62176009, accepts K Dollars; mall address 18 Hanoi Road; no closure notice. (2) Brand site thesilktea.com/stores: 'Silk. Tsim Sha Tsui - Shop B122A, B1/F, K11 Art Mall' (no hours), with an Order Ahead link to app.eats365pos.com/hk/en/silk_k11/menu, which shows 'Business Hours: 11:00-21:45', 'Shop No.B122A, B/F, K11 Art Mall, No.18, Hanoi Road, Tsim Sha Tsui', phone 6018 3087 (different number), first menu item '1. Smooth King' HK$42. (3) Google knowledge panel 'Silk. (Tsim Sha Tsui)': daily 11:00-22:00, +852 6217 6009. CONFLICT: opening 11:00 (operator order page, Google) vs 11:30 (mall); closing 21:45 (operator order page; possibly the online-ordering window) vs 22:00 (mall, Google). Mall directory values are recorded; the Korean note advises 11:30-21:45. No official Instagram URL captured. osm_query targets the mall because the shop is a basement unit inside it."
+ },
+ {
+  "id": "my-cup-of-tea-wan-chai",
+  "name_ko": "마이 컵 오브 티 (완차이)",
+  "name_local": "My Cup of Tea (Wan Chai)",
+  "name_zh": "我杯茶",
+  "category": "food",
+  "lat": 22.27602,
+  "lng": 114.1729,
+  "coord_source": "OpenStreetMap node 13939492301 via Nominatim (2026-11-20): shop node; rounded to 5 decimals",
+  "address_en": "G/F, Wing Hing Building, 6 Spring Garden Lane, Wan Chai, Hong Kong",
+  "url": "https://www.instagram.com/omycupoftea/",
+  "hours": {
+   "Mon": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "07:00",
+     "19:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 인스타그램 소개글 기준 매일 07:00–19:00이며 공휴일에도 영업합니다. 18:00 이후에도 포장 주문은 받는다고 적혀 있어 매장 안 식사는 더 일찍 끝날 수 있습니다. 구글 등록 정보는 07:00–18:30입니다.",
+  "fee_ko": "",
+  "dur": 30,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 중국어 상호는 我杯茶이며, 운영사 소개로는 홍콩식 실크 스타킹 밀크티와 원앙차 전문점입니다. 블로그 후기: 먼저 계산하는 방식이며 옥토퍼스 카드를 받습니다.",
+  "source_url": "https://www.instagram.com/omycupoftea/",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "My Cup of Tea, 6 Spring Garden Lane, Wan Chai, Hong Kong",
+  "evidence": "(1) Official Instagram @omycupoftea, profile bio read while logged out (2026-11-20): 'MyCupOfTea我杯茶', '香港灣仔春園街6號地舖 (G/F, Wing Hing Building, 6 Spring Garden Lane, Wan Chai)', tel (852) 2386 0007, '每日7am - 7pm（公眾假期照常營業）', '6pm後外賣照常接單' (takeaway orders still taken after 6pm). (2) Official Facebook facebook.com/Omycupoftea ('我杯茶 - 港式奶茶鴛鴦專門店'): 香港灣仔春園街6號永興樓地下, +852 2386 0007, WhatsApp +852 5543 7833, hkcupoftea@gmail.com; latest post 12 Nov 2026, so the shop is active; weekly hours are hidden behind login (not signed in). A Google snippet of one of its posts says '每日7:00 – 19:00'. Another page, facebook.com/MYCUPOFTEA.HKMCOT, is unavailable. (3) Secondary sources conflict: Google knowledge panel daily 07:00-18:30; ewithu.app (Jan 2026) 07:00-18:30; Klook 08:00-19:00 with last order 18:45; Little Steps Asia 07:00-18:30. Official 07:00-19:00 used; the 18:00/18:30 figures may reflect when dine-in stops (my inference, not confirmed). 'Pay first' and Octopus acceptance were not found in any official source (blog only). OpenRice r556630 returned 504."
+ },
+ {
+  "id": "jenny-bakery-tst",
+  "name_ko": "제니 베이커리 (침사추이점)",
+  "name_local": "Jenny Bakery (Tsim Sha Tsui)",
+  "name_zh": "珍妮曲奇",
+  "category": "shop",
+  "lat": 22.29735,
+  "lng": 114.17249,
+  "coord_source": "OpenStreetMap node 4227025589 via Nominatim (2026-11-20): shop node (Mirador Mansion 1/F); rounded to 5 decimals",
+  "address_en": "Shop 42, 1/F, Mirador Mansion, 62 Nathan Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+  "url": "https://www.jennybakery.com/hongkong/",
+  "hours": {
+   "Mon": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 홈페이지 기준 10:00–19:00입니다. 요일 구분 없이 적혀 있고 구글 등록 정보도 매일 같은 시간입니다. 물건이 다 팔리면 일찍 닫는다고 합니다.",
+  "fee_ko": "",
+  "dur": 20,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 곰 그림 깡통에 담은 버터 쿠키로 유명합니다. 운영사 홈페이지: 현금과 위챗페이만 받고, 명절처럼 물량이 모자랄 때는 구매 수량을 제한할 수 있습니다. 홍콩 지점은 침사추이와 성완 두 곳뿐이라고 밝히고 있습니다. 블로그 후기: 현금만 받고 포장만 됩니다.",
+  "source_url": "https://www.jennybakery.com/hongkong/",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Jenny Bakery, Mirador Mansion, 62 Nathan Road, Tsim Sha Tsui, Hong Kong",
+  "evidence": "(1) jennybakery.com/hongkong/ (WebFetch and built-in browser, 2026-11-20): 'Shop 42 1st Floor Mirador Mansion 62 Nathan Road Tsim Sha Tsui, Kowloon', (+852) 2311.8070, 'Business Hour: 10AM - 7PM' (no days stated), MTR Tsim Sha Tsui Exit D; notice image 'Jenny Bakery has only 2 branches in Hong Kong'; payment image alt text 'Jenny Bakery Accept CASH & Wechat Pay only' (its file title is 'CashOnly'). (2) Chinese page jennybakery.com/zh-hans/hongkong/: brand 珍妮曲奇聰明小熊; 10:00-19:00; closes early if sold out; purchase limits may apply when stock is short at festivals; shop 美麗都大厦樓上42號舖, 彌敦道62號. (3) Google knowledge panel 'Jenny Bakery Tsim Sha Tsui': daily 10:00-19:00, +852 2311 8070 (matches). Takeaway-only is not stated on the official site (it is a retail cookie shop with no seating mentioned); kept as a blog claim. Cash-only per blog conflicts slightly with the official 'cash and WeChat Pay'. Lunar New Year 2027 falls on 6 Feb, after the trip, so no holiday effect expected."
+ },
+ {
+  "id": "crystal-jade-hkia-t1",
+  "name_ko": "크리스탈 제이드 (홍콩국제공항 제1터미널)",
+  "name_local": "Crystal Jade La Mian Xiao Long Bao (Hong Kong International Airport)",
+  "name_zh": "翡翠拉麵小籠包（機場店）",
+  "category": "food",
+  "lat": 22.31513,
+  "lng": 113.93595,
+  "coord_source": "OpenStreetMap node 13900375617 via Nominatim (2026-11-20): restaurant node, level:ref 5, hours Mo-Su 07:00-23:30 match HKIA; rounded to 5 decimals",
+  "address_en": "Shop 5T161, 5/F (Arrivals Level L5, Arrivals Hall, Non-restricted Area), Terminal 1, Hong Kong International Airport, Chek Lap Kok, Hong Kong",
+  "url": "https://www.crystaljade.com.hk",
+  "hours": {
+   "Mon": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "07:00",
+     "23:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "홍콩국제공항 공식 안내 기준 07:00–23:30이며 요일 구분은 없습니다. 구글 등록 정보와 블로그는 07:00–23:00으로 적고 있으니 늦게 갈 때는 23:00 전에 도착하세요.",
+  "fee_ko": "블로그 후기: 1인당 차 값 HK$12가 붙습니다. 공식 자료로는 확인하지 못했습니다.",
+  "dur": 60,
+  "memo_ko": "추천 출처: 네이버 블로그 홍콩 맛집 정리 글. 제1터미널 5층 도착 환영 홀의 보안 검색 전 구역(5T161호)에 있어 입국 직후나 출국 수속 전에 들를 수 있습니다. 공항 안내 기준 대표 메뉴는 샤오롱바오와 수타면입니다.",
+  "source_url": "https://www.hongkongairport.com/en/shop-dine/dining/crystal-jade",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Crystal Jade, Terminal 1, Hong Kong International Airport, Chek Lap Kok, Hong Kong",
+  "evidence": "(1) HKIA official page hongkongairport.com/en/shop-dine/dining/crystal-jade (built-in browser; WebFetch got 403): Terminal 1, Arrivals Hall, Arrivals Level (L5), Non-restricted Area, '07:00 - 23:30', +852 2261 0553, www.crystaljade.com.hk; Chinese page title 翡翠拉麵小籠包; describes signature Xiao Long Bao and handmade La Mian; no unit number, no tea charge, no closure or renovation notice; days not stated. (2) Operator site crystaljade.com.hk/en-US/shop-location: 'The Airport Shop (New Territories) - (Non-Restricted Area) Shop 5T161, 5/F, Terminal 1, Hong Kong International Airport, Chek Lap Kok', 2261 0553; zh-HK page: 機場店, 赤鱲角香港國際機場1號客運大樓5樓5T161號舖 (非禁區); no hours on the operator site. (3) Google knowledge panel: Unit 5T161, daily 07:00-23:00. CONFLICTS: closing 23:30 (HKIA) vs 23:00 (Google, blog); Klook says 06:30-24:00 (older). A Foodie World, Tripadvisor and an OpenRice snippet give unit 5T160/T160; the operator and Google say 5T161, which is used. Tea charge: the blog's HK$12 per person was not found in any official source. Search-engine summaries of undated OpenRice reviews mention HK$12 at other branches (Airside, Ma On Shan) and about HK$8 at the airport branch; these reviews were not opened, so neither figure is verified."
+ },
+ {
+  "id": "bar-leone",
+  "name_ko": "바 리오네",
+  "name_local": "Bar Leone",
+  "name_zh": "",
+  "category": "bar",
+  "lat": 22.28325,
+  "lng": 114.15044,
+  "coord_source": "OpenStreetMap way 1300658279 via Nominatim (2026-11-20): address of 11 Bridges Street (official address 11-15); OSM node 13524043901 'Bar Leone' sits 60 m east tagged housenumber 108, not used; rounded to 5 decimals",
+  "address_en": "11-15 Bridges Street, Central, Hong Kong",
+  "url": "https://www.barleonehk.com/",
+  "hours": {
+   "Mon": [
+    [
+     "17:00",
+     "24:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "17:00",
+     "24:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "17:00",
+     "24:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "17:00",
+     "24:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "15:00",
+     "24:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "15:00",
+     "24:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "17:00",
+     "24:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 인스타그램 소개글 기준입니다. 월요일부터 목요일과 일요일은 17:00–24:00, 금요일과 토요일은 15:00–24:00입니다. 공식 누리집도 같은 개점 시각을 적었으나 마감 시각은 밝히지 않았습니다. 비공개 행사로 문을 닫는 날을 인스타그램에 공지한 적이 있으므로(2026년 11월 19일) 가는 날 인스타그램을 확인하세요.",
+  "fee_ko": "",
+  "dur": 90,
+  "memo_ko": "The World's 50 Best Bars에서 2025년과 2026년 두 해 연속 1위에 올랐습니다(50 Best 공식 순위와 SCMP 2026년 10월 8일 기사 기준). 공식 누리집에 예약을 받지 않는다고 적혀 있습니다. SCMP 100 Top Tables 2026은 붐비는 밤에 1–2시간 줄을 설 수 있다고 적었습니다.",
+  "source_url": "https://www.instagram.com/barleonehk/",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Bar Leone, Bridges Street, Hong Kong",
+  "evidence": "(1) Official site barleonehk.com (raw HTML downloaded): 'LOCATION 11-15 Bridges Street, Central, Hong Kong'; 'HOURS Monday - Thursday, Sunday 17:00 - Late / Friday - Saturday 15:00 - Late'; 'NO RESERVATIONS'. No phone published, only an email contact. The nav has an 'Important Annoucement' link to /announcement, but that page returned HTTP 404 both via WebFetch and curl, so its content is unknown. (2) Official Instagram @barleonehk, read twice via WebFetch with identical results (raw curl HTML did not include the bio because of the login wall): bio says '19 NOV (THU) Closed for Private Event', 'Mon-Thu & Sun 17:00 till 00:00', 'Fri-Sat 15:00 till 00:00', then a truncated 'No ...' (likely 'No reservations'). Close time 00:00 comes from this bio; the website only says 'Late'. (3) the50.com (former theworlds50best.com) establishment page: address '11-15 Bridges St, Central', hours 'Tue – Sun' with no times, 'No.1 The 50 Best Bars 2026', 'No.3 Asia's 50 Best Bars 2026'. The 'Tue – Sun' conflicts with the operator's own Mon-open schedule; operator sources used. (4) the50.com bars list 1-50: Bar Leone ranked 1 (2026 list). SCMP article 3370143 dated 8 Oct 2026: Bar Leone retained the World's 50 Best Bars top spot for a second year in a row (ceremony in Milan); this also confirms the 2025 No.1. (5) SCMP 100 Top Tables 2026 profile: '5pm-late', 'Walk-ins only, no reservations – so expect queues of up to an hour or two on busy nights'. SCMP 100 Top Tables 2025 (search snippet only): 'Tue-Sun 5pm-midnight' (older). (6) Unofficial phone +852 2511 6444 seen only in a search summary; not on official channels, not used. (7) The given address '15 Bridges Street' is part of the official '11-15 Bridges Street'. Some media place it in Sheung Wan; official says Central. No announced closure, relocation or renovation found for 21-24 Jan 2027; related news only: sister bar Bar Camillo opening at Rosewood Hong Kong on 25 Nov 2026, and a separate unaffiliated 'Bar Leone' in New York. No Chinese name found."
+ },
+ {
+  "id": "duck-victoria",
+  "name_ko": "덕 빅토리아 (하버시티)",
+  "name_local": "Duck Victoria (Harbour City)",
+  "name_zh": "城中鴨子",
+  "category": "food",
+  "lat": 22.29753,
+  "lng": 114.16798,
+  "coord_source": "OpenStreetMap node 10814309406 via Nominatim (2026-11-20): restaurant node in Harbour City; rounded to 5 decimals",
+  "address_en": "Shop 3319, Level 3, Gateway Arcade, Harbour City, 3-27 Canton Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+  "url": "https://www.maximschinese.com.hk/en/brand/25",
+  "hours": {
+   "Mon": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "11:30",
+     "22:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 맥심 누리집과 하버시티 매장 안내가 모두 매일 11:30–22:30(공휴일 포함)으로 적었습니다. 검색 결과에 보인 오픈라이스 정보는 점심 11:30–15:00, 저녁 17:30–21:30으로 달랐습니다. 15:00–17:30 사이나 21:30 이후에 가려면 전화(2347 6898)로 확인하세요. 마지막 주문 시각은 공식 자료에 없습니다.",
+  "fee_ko": "",
+  "dur": 90,
+  "memo_ko": "맥심 그룹의 베이징덕 전문점입니다. 하버시티 게이트웨이 아케이드 3층 3319호입니다. 확인된 수상 내역은 없습니다.",
+  "source_url": "https://www.maximschinese.com.hk/en/brand/25",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Duck Victoria, Harbour City, Canton Road, Hong Kong",
+  "evidence": "(1) Maxim's Chinese official brand page maximschinese.com.hk/en/brand/25 (raw HTML downloaded): 'Duck Victoria 城中鴨子', '九龍海港城港威商場3階3319號', tel '2347 6898', '星期一至日及公眾假期: 11:30am - 10:30pm' (Mon-Sun and public holidays). (2) Harbour City official shop page harbourcity.com.hk/en/restaurant/duck-victoria/ (raw HTML downloaded, EN and TC): 'Gateway Arcade L3 3319', phone 23476898, '11:30 – 22:30 MON – SUN'; TC page title '城中鴨子'. Its website link points to maximschinese.com.hk/brand/21, which is now the separate brand M&C Duck (美中‧鴨子, branches in Tseung Kwan O and Tai Wai), so that link is stale; brand/25 is the correct Duck Victoria page. (3) Harbour City official 'Our Story' page (search snippet): mall address 3-27 Canton Road, Tsim Sha Tsui, Kowloon. (4) Harbour City article dated 25 Apr 2023: Peking-Huaiyang cuisine, 2.8 kg Beijing ducks, half-bird option; hours 11:30-22:30 Mon-Sun. (5) Conflict: OpenRice (r603875, seen only through a search summary; the page itself timed out) gives 11:30-15:00 and 17:30-21:30 daily; Time Out gives daily 11:30am-10:30pm. Official sources agree on 11:30-22:30. (6) Discover Hong Kong listing id74649 exists (Chinese slug 城中鴨子) but returned HTTP 403. No Michelin or other award found. Reservation policy not stated officially; a 2022 OpenRice user review said walk-in only, not used. No closure or renovation notice found for 21-24 Jan 2027."
+ },
+ {
+  "id": "kams-roast-goose",
+  "name_ko": "캄스 로스트 구스 (완차이)",
+  "name_local": "Kam's Roast Goose",
+  "name_zh": "甘牌燒鵝",
+  "category": "food",
+  "lat": 22.27766,
+  "lng": 114.1753,
+  "coord_source": "OpenStreetMap node 4169404589 via Nominatim (2026-11-20): restaurant node; rounded to 5 decimals",
+  "address_en": "G/F, Po Wah Commercial Center, 226 Hennessy Road, Wan Chai, Hong Kong",
+  "url": "https://www.krg.com.hk",
+  "hours": {
+   "Mon": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "11:30",
+     "21:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "가게 누리집은 영업시간을 11:30–21:30으로만 적었고, 미쉐린 가이드는 월요일부터 일요일까지 매일 11:30–21:30으로 적었습니다. 두 자료가 같습니다. 쉬는 날은 어느 자료에도 없습니다.",
+  "fee_ko": "",
+  "dur": 45,
+  "memo_ko": "2026 미쉐린 가이드 홍콩·마카오 1스타입니다(미쉐린 공식 전체 명단 기준). 미쉐린 소개문에 좌석이 30석뿐이라 줄을 설 수 있다고 적혀 있습니다.",
+  "source_url": "https://www.krg.com.hk/!en/contact/contact.html",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Kam's Roast Goose, Hennessy Road, Hong Kong",
+  "evidence": "(1) Official site krg.com.hk contact page (EN and TC, raw HTML downloaded): 'Tel: (852) 2520 1110', 'Business Hours: 11:30am - 9:30pm', 'Address: G/F Po Wah Commercial Center, 226 Hennessy Road, Wan Chai, Hong Kong'; TC: '香港灣仔軒尼詩道226號，寶華商業中心地下'. Site footer says 2014, so it is old, but it matches Michelin. No closing day stated. Homepage news mentions the 2018 one-star award. (2) MICHELIN Guide restaurant page (EN and zh_HK via WebFetch; curl was blocked): address 'GF, Po Wah Commercial Center, 226 Hennessy Road, Wan Chai'; phone +852 2520 1110; Mon-Sun 11:30-21:30; star icon shown; 'With only 30 seats, don't be surprised to see a queue'; tagged 'Worth Queueing For'. (3) MICHELIN Guide article 'The Full List of the MICHELIN Guide Hong Kong & Macau 2026' (18th edition, dated 19 Mar 2026): 'Kam's Roast Goose' under One MICHELIN Star. Cross-checked with Hong Kong Madame (20 Mar 2026) one-star list. (4) One tourism listing gave 227 Hennessy Road; official site and Michelin both say 226, so 226 used. A 2024 OpenRice user comment claimed the star was lost; contradicted by the 2026 Michelin list. No closure or renovation news found; 21-24 Jan 2027 is before Lunar New Year (6 Feb 2027)."
+ },
+ {
+  "id": "tim-ho-wan-sham-shui-po",
+  "name_ko": "팀호완 (삼수이포)",
+  "name_local": "Tim Ho Wan (Sham Shui Po)",
+  "name_zh": "添好運 (深水埗)",
+  "category": "food",
+  "lat": 22.32903,
+  "lng": 114.16634,
+  "coord_source": "OpenStreetMap node 4106961590 via Nominatim (2026-11-20): restaurant node, 9 Fuk Wing Street; rounded to 5 decimals",
+  "address_en": "G/F & M/F, Ka Wui Building, 9-11 Fuk Wing Street, Sham Shui Po, Kowloon, Hong Kong",
+  "url": "https://www.timhowan.com/",
+  "hours": {
+   "Mon": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "08:00",
+     "22:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 누리집 기준 08:00–22:00입니다. 미쉐린 가이드는 매일 08:00–21:30으로 적어 마감이 30분 다릅니다. 저녁 늦게 간다면 21:30 전에 도착하세요. 운영사 누리집은 요일 구분 없이 한 가지 시간만 적었습니다.",
+  "fee_ko": "",
+  "dur": 60,
+  "memo_ko": "2026 미쉐린 가이드 홍콩·마카오 빕 구르망입니다(미쉐린 공식 전체 명단 기준). 주소는 푹윙 스트리트(福榮街) 9–11번지입니다. 미쉐린은 이곳을 줄 설 만한 곳으로 분류했습니다.",
+  "source_url": "https://www.timhowan.com/stores/hong-kong",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Tim Ho Wan, Fuk Wing Street, Hong Kong",
+  "evidence": "(1) Official store list timhowan.com/stores/hong-kong (raw HTML downloaded; timhowan.com.hk redirects to timhowan.com): store 'Sham Shui Po', '8:00 AM - 10:00 PM', '+852 2788 1226', 'G/F & M/F, Ka Wui Bldg, No.9-11 Fuk Wing St.,Sham Shui Po, Kowloon'. No per-day breakdown or notices. (2) MICHELIN Guide restaurant page (EN and zh_HK via WebFetch): '9-11 Fuk Wing Street, Sham Shui Po' / '深水埗福榮街9-11號', name '添好運 (深水埗)', phone +852 2788 1226, Mon-Sun 08:00-21:30, tagged 'Worth Queueing For'. Conflict: official close 22:00 vs Michelin 21:30 (Michelin may reflect last order or older data; not stated). A search snippet of another Michelin locale page showed Mon-Fri 10:00-22:00, Sat-Sun 09:00-22:00, probably stale; not used. (3) MICHELIN Guide Hong Kong & Macau 2026 full list (19 Mar 2026): 'Tim Ho Wan (Sham Shui Po)' under Bib Gourmand. Jollibee Group press (Apr 2026) also says 17th consecutive Michelin recognition. Official site JSON says it held a Michelin star 2010-2021, so it is now Bib Gourmand, not starred. (4) The brief said 'Kweilin Street area'; every source gives Fuk Wing Street, not Kweilin Street. (5) The official site's story says the founders opened their first 20-seat shop in Sham Shui Po in 2009; I did not independently verify that this exact Fuk Wing Street shop is the original first shop, so the '본점' label in name_ko is kept as given but unverified. Reservation wording differs between Michelin locales (EN: manages its own bookings; a zh snippet: no reservations), so not used. No closure notice found for 21-24 Jan 2027."
+ },
+ {
+  "id": "maks-noodle-central",
+  "name_ko": "막스 누들 (센트럴)",
+  "name_local": "Mak's Noodle (Wellington Street)",
+  "name_zh": "麥奀雲吞麵世家 (威靈頓街)",
+  "category": "food",
+  "lat": 22.283,
+  "lng": 114.15463,
+  "coord_source": "OpenStreetMap node 4207227078 via Nominatim (2026-11-20): restaurant node; rounded to 5 decimals",
+  "address_en": "G/F, 77 Wellington Street, Central, Hong Kong",
+  "url": "",
+  "hours": {
+   "Mon": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "11:00",
+     "21:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 누리집을 찾지 못해 더 비트(The Beat) 지역 안내와 오픈라이스 검색 결과에 함께 나온 매일 11:00–21:00을 넣었습니다. 11:30 개점으로 적은 오래된 자료도 있습니다. 가기 전에 다시 확인하세요.",
+  "fee_ko": "",
+  "dur": 30,
+  "memo_ko": "완탕면 전문점입니다. 2026 미쉐린 가이드 홍콩·마카오 전체 명단에는 없습니다. 홍콩관광청 품질관광서비스(QTS) 인증 식당 목록에 이 주소가 올라 있습니다.",
+  "source_url": "https://thebeat.asia/hong-kong/nomads/neighborhood-guide/central/eat/maks-noodles",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "Mak's Noodle, Wellington Street, Hong Kong",
+  "evidence": "(1) No official website, Facebook or Instagram found; Wikipedia's article lists none either. (2) Discover Hong Kong (HKTB) QTS restaurant listing id69319 (raw HTML downloaded): 'Mak's Noodle', 'G/F, 77 Wellington Street, Central, Hong Kong Island', phone 28543810, among several other branch addresses. It gives no hours. This is the best evidence that the Wellington Street shop is still operating. (3) The Beat Asia Central guide (fetched; copyright 2021-2026, no update date): '77 Wellington St, Central', 'Mon – Sun 11AM to 9PM', '+852 2854 3810'. Used as hours source. (4) OpenRice r1998 'Mak's Noodle (Wellington Street)' could not be loaded (HTTP 504 / curl timeout); a search summary of it says 11:00-21:00 every day, phone 28543810, and one reviewer said cash and Alipay only. Some OpenRice search pages showed 'Closed Now' (time of crawl) and one cached page 'Now Closed'; I could not confirm which, so there is a small doubt about current status. (5) Trip.com Central food blog (2026, search summary only): Mon-Sun 11:00-21:00. Burpple (search summary): 11:00-21:00 daily; page itself returned 403. Eat and Travel With Us (older): daily 11:30-21:00. An autoreserve listing (Thu only 10:00-23:00) looks wrong and was ignored. (6) Michelin: the MICHELIN Guide Hong Kong & Macau 2026 full list does not include Mak's Noodle (it lists the different shop Mak Man Kee, Jordan, as Bib Gourmand); Michelin search found no Mak's Noodle page. No Michelin claim made. (7) Chinese name 麥奀雲吞麵世家 from Wikipedia; branch label (威靈頓街) from OpenRice search results. Wikipedia history: Central open-air stall from 1968, reopened on Wellington Street in 1989 (not used in memo). No closure or relocation news found."
+ },
+ {
+  "id": "kau-kee",
+  "name_ko": "카우키 (센트럴)",
+  "name_local": "Kau Kee Restaurant",
+  "name_zh": "九記牛腩",
+  "category": "food",
+  "lat": 22.28423,
+  "lng": 114.15254,
+  "coord_source": "OpenStreetMap node 4106961589 via Nominatim (2026-11-20): restaurant node; rounded to 5 decimals",
+  "address_en": "G/F, 21 Gough Street, Central, Hong Kong",
+  "url": "",
+  "hours": {
+   "Mon": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "12:30",
+     "22:30"
+    ]
+   ],
+   "Sun": []
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "미쉐린 가이드 누리집 기준입니다. 월요일부터 토요일까지 12:30–22:30이고 일요일은 휴무입니다. 타임아웃 홍콩과 여행 정보 사이트도 같은 시간을 적었습니다. 공휴일에도 쉰다는 개인 여행기가 있으나 공식 자료로는 확인하지 못했습니다. 여행 기간에는 홍콩 공휴일이 없고, 1월 24일(일)은 휴무입니다.",
+  "fee_ko": "",
+  "dur": 45,
+  "memo_ko": "1930년대부터 영업한 소고기 양지 국수 가게입니다. 미쉐린 가이드 홍콩 2026 빕 구르망에 올라 있습니다(미쉐린 가이드 누리집 기준). 현금만 받고 예약은 받지 않으며 길에서 줄을 서는 경우가 많다고 미쉐린 가이드가 적었습니다.",
+  "source_url": "https://guide.michelin.com/en/hong-kong-region/hong-kong/restaurant/kau-kee",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Kau Kee Restaurant, 21 Gough Street, Hong Kong",
+  "evidence": "(1) guide.michelin.com Kau Kee page (WebFetch on /en/ and /hk/en/, plus raw HTML via curl): address '21 Gough Street, Central, Hong Kong, Hong Kong SAR'; phone '+852 2850 5967'; hours Monday-Saturday '12:30-22:30', Sunday 'closed'; no note about public holidays. The visible-text summary did not show a distinction label, but the page's schema.org JSON-LD contains award 'Bib Gourmand: good quality, good value cooking', dateAwarded '2026', plus 'paymentAccepted: Cash only', 'acceptsReservations: No', review datePublished 2026-03-19; data-dtm-distinction='bib'. The zh_HK Michelin page title gives the Chinese name as '九記' only; the shop sign, OpenRice URL and travel.yam.com use '九記牛腩', which I used. (2) Time Out Hong Kong (timeout.hk, read in browser; page 'updated' 2026-09-04): address 'G/F, 21 Gough Street, Sheung Wan, Hong Kong' (district label differs from Michelin's 'Central'), phone 28505967, timings 'Mon-Sat 12.30pm-10.30pm'. (3) travel.yam.com article 136187 (last updated 2026-01-26, apparently Google-listing data): Mon-Sat 12:30-22:30, Sunday closed, phone 2850 5967. (4) Chinese-language search summary of a Taiwanese travel blog (funtime.com.tw) and a 2014 blog said closed on Sundays and public holidays; one blog mentioned a short evening break around 19:15-20:30 but was unsure it still applies. Not confirmed by any official source, so not used. (5) No official website found: kaukee.com and kaukee.com.hk did not respond; url left empty. OpenRice could not be read (HTTP 504 timeouts in WebFetch, curl and the browser). (6) gov.hk 2027 general holiday list: no holiday between 21 and 24 January 2027 (Lunar New Year falls 6-9 February 2027), so the public-holiday question does not affect this trip."
+ },
+ {
+  "id": "lan-fong-yuen",
+  "name_ko": "란퐁유엔 (센트럴)",
+  "name_local": "Lan Fong Yuen (Central)",
+  "name_zh": "蘭芳園",
+  "category": "food",
+  "lat": 22.28264,
+  "lng": 114.1538,
+  "coord_source": "OpenStreetMap node 3493470992 via Nominatim (2026-11-20): restaurant node; rounded to 5 decimals",
+  "address_en": "2 Gage Street, Central, Hong Kong",
+  "url": "",
+  "hours": {
+   "Mon": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "07:30",
+     "18:00"
+    ]
+   ],
+   "Sun": []
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 자료를 찾지 못해 여행 정보 사이트(travel.yam.com, 2026년 1월 갱신)와 The Beat의 정보를 넣었습니다. 월요일부터 토요일까지 07:30–18:00이고 일요일은 휴무입니다. 07:00 개점이나 매일 영업으로 적은 곳도 있어 가기 전에 다시 확인하세요. 1월 24일(일)은 휴무로 보아야 합니다.",
+  "fee_ko": "",
+  "dur": 30,
+  "memo_ko": "1952년 창업으로 알려진 차찬텡으로, 천에 걸러 내는 홍콩식 밀크티와 돼지갈비 빵이 유명합니다. 가게 앞 초록색 노점에서 음료를 포장해 갈 수 있다고 홍콩관광청이 소개합니다. 미쉐린 가이드 누리집에는 올라 있지 않습니다.",
+  "source_url": "https://travel.yam.com/article/136187",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "Lan Fong Yuen, 2 Gage Street, Hong Kong",
+  "evidence": "No operator website, Instagram or Facebook page could be found. (1) discoverhongkong.com Lan Fong Yuen page (raw HTML via curl): address '2 Gage Street, Central, Hong Kong Island', description 'For over 70 years...' mentions the green stall for takeaway milk tea and pork chop buns; no opening hours on the page. (2) travel.yam.com article 136187 (last updated 2026-01-26; hours look like Google-listing data): '香港中環結志街2號', phone 2544 3895, Mon-Sat 07:30-18:00, Sunday 休息. Also lists a Tsim Sha Tsui branch (44 Nathan Road) at 10:30-18:00 daily. (3) The Beat (thebeat.asia, no article date): '2 Gage Street, Central', 'Mon - Sat 7:30AM - 6PM', 'Sunday Closed', phone (852) 2544 3895. (4) Search summaries: joinpearl.co and nomss.com give the same Mon-Sat 07:30-18:00, Sunday closed; autoreserve.com (user-submitted data) adds 'Public holiday Closed'. Conflicts: explore.sky100.com.hk says '7:00am - 6:00pm Daily' and mapthemeal.com says 'Mo-Su 07:00-18:00'. I used the majority value. One Central guide gave the main store as 9 Gage Street; all other sources and Discover Hong Kong say 2 Gage Street. (5) Time Out Hong Kong page (updated 2026-09-04) confirms the address but its timings field is empty. (6) Mirror Media (Taiwan) article updated 2026-09-15 says the family keeps the original Gage Street site; it gives hours only for the Tsim Sha Tsui branch. (7) guide.michelin.com returns 'Restaurant not found' for lan-fong-yuen and lan-fong-yuen-central; a 2023 article says it has no Michelin star. A Michelin Plate claim found in search belongs to a different business (Mrs. Fong Chinese Desserts). (8) OpenRice could not be read (HTTP 504). Founding year 1952 comes from The Beat and travel.yam.com; Discover Hong Kong says 'over 70 years'."
+ },
+ {
+  "id": "australia-dairy-company",
+  "name_ko": "호주우유공사 (조던)",
+  "name_local": "Australia Dairy Company",
+  "name_zh": "澳洲牛奶公司",
+  "category": "food",
+  "lat": 22.30461,
+  "lng": 114.17059,
+  "coord_source": "OpenStreetMap node 4106956091 via Nominatim (2026-11-20): restaurant node; rounded to 5 decimals",
+  "address_en": "47 Parkes Street, Jordan, Kowloon, Hong Kong",
+  "url": "",
+  "hours": {
+   "Mon": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ],
+   "Thu": [],
+   "Fri": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "07:30",
+     "22:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 자료가 없어 여행 정보 사이트(travel.yam.com, 2026년 1월 갱신)와 오픈스트리트맵의 정보를 넣었습니다. 07:30–22:00이고 목요일은 휴무입니다. 타임아웃 홍콩은 마감을 23:00으로 적어 마감 시각이 엇갈립니다. 1월 21일(목)은 휴무이므로 금요일부터 일요일 사이에 가세요.",
+  "fee_ko": "",
+  "dur": 30,
+  "memo_ko": "부드럽게 익힌 달걀 토스트와 찐 우유 푸딩(燉奶)이 유명한 차찬텡입니다. 응대가 무뚝뚝하고 빨리 먹고 나가는 분위기라고 홍콩관광청이 소개합니다. 미쉐린 가이드 누리집에는 올라 있지 않습니다.",
+  "source_url": "https://travel.yam.com/article/136187",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "Australia Dairy Company, 47 Parkes Street, Hong Kong",
+  "evidence": "No official website or social media account found. (1) discoverhongkong.com Australia Dairy Company page (raw HTML via curl): address '47 Parkes Street, Jordan, Kowloon'; describes egg dishes and steamed milk; no hours. (2) travel.yam.com article 136187 (last updated 2026-01-26; hours look like Google-listing data): '香港佐敦白加士街47號', phone 2730 1356, Mon/Tue/Wed/Fri/Sat/Sun 07:30-22:00, '星期四: 休息'. (3) OpenStreetMap value given by the caller: '07:30-22:00; Th off' (matches source 2). (4) Time Out Hong Kong (timeout.hk, read in browser; page 'updated' 2026-09-04, probably a site migration date): address '47 Parkes Street, Jordan', phone 2730 1356, timings '7.30am-11pm. Closed Thurs.' Conflict on closing time: 22:00 vs 23:00. (5) bring-you.info (updated 2025-08-22): '营业时间：7:30~22:00', address 白加士街47号, no closing day mentioned. (6) Tripomatic/Sygic listing (search summary): 7:30-23:00, closed Thursday, phone +852 2730 1356. (7) An undated OpenRice review page (search snippet, probably old) gave 白加士街47-49號地下, phone 2311 7363, Mon-Fri 06:45-20:00, Sat 06:45-18:00, Sun closed; treated as outdated. I used 22:00 because three sources agree and it is the safer earlier close; Thursday closure is supported by four sources. Address: the caller had 47-49 Parkes Street; Discover Hong Kong and Time Out write 47 Parkes Street, so I used that. guide.michelin.com returns 'Restaurant not found'. OpenRice live page could not be read (HTTP 504)."
+ },
+ {
+  "id": "tai-kwun",
+  "name_ko": "대관 (센트럴)",
+  "name_local": "Tai Kwun – Centre for Heritage and Arts",
+  "name_zh": "大館",
+  "category": "sight",
+  "lat": 22.28116,
+  "lng": 114.15401,
+  "coord_source": "OpenStreetMap way 591035975 via Nominatim (2026-11-20): arts_centre area centroid; rounded to 5 decimals",
+  "address_en": "10 Hollywood Road, Central, Hong Kong",
+  "url": "https://www.taikwun.hk/en/",
+  "hours": {
+   "Mon": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "08:00",
+     "23:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 누리집 기준입니다. 단지는 매일 08:00–23:00 개방합니다. 방문자 센터는 10:00–20:00, 문화유산 전시는 11:00–19:00이며 그중 주요 문화유산 전시실과 Operation Central은 10:00에 엽니다. 현대미술관 JC Contemporary는 화요일부터 일요일까지 11:00–19:00이고 월요일은 휴관합니다. 중앙재판소 건물(Block 09) 전시는 학생 행사가 있는 일부 화요일에 닫습니다. 흑색 호우경보나 8호 이상 태풍 신호가 내려지면 문을 늦게 열거나 일부만 운영합니다.",
+  "fee_ko": "단지 입장은 무료입니다. 일부 전시와 행사는 유료입니다. 현재 JC Contemporary의 Anne Imhof: House of Swans 전시는 일반 HK$50, 할인 HK$40이며 2027년 1월 3일에 끝납니다. 1월 21–24일의 JC Contemporary 전시 일정은 아직 확인하지 못했습니다.",
+  "dur": 90,
+  "memo_ko": "옛 중앙경찰서, 중앙재판소, 빅토리아 감옥 건물군을 문화유산과 예술 공간으로 되살린 곳입니다. 해설사와 함께 도는 무료 관람 Heritage Walk(약 45분, 매일, 광둥어나 보통화나 영어)는 온라인 예약이 필요하고, 건축 해설 Architectural Legacy(약 60분)는 목요일과 일요일에만 있습니다. 회차 시각은 누리집 일정표에서 확인하세요. 센트럴–미드레벨 에스컬레이터와 이어진 육교로 바로 들어갈 수 있습니다.",
+  "source_url": "https://www.taikwun.hk/en/visit/visiting-information",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Tai Kwun, 10 Hollywood Road, Hong Kong",
+  "evidence": "taikwun.hk blocks WebFetch (403) and curl (202 empty challenge), so it was read in the built-in browser. (1) Visiting Information page (EN and ZH): Address '10 Hollywood Road, Central, Hong Kong'. 'Opening Hours: 8am-11pm | Tai Kwun; 10am-8pm | Visitor Centre; 11am-7pm (Tue - Sun) | JC Contemporary; 11am-7pm | Heritage Exhibitions (Main Heritage Gallery & Operation Central open at 10am)'. FAQ: 'It's free to visit Tai Kwun. However, an admission fee may be required for specific exhibitions or programmes.' Phone '3559 2600'. Black Rainstorm before 8am: site stays closed and reopens two hours after the signal is lowered; after 8am: open with limited operations. Typhoon No. 8 lowered before 6pm: reopens after two hours. ZH page title gives the Chinese name '大館'. (2) Public Tours page (whats-on/detail/public-tours/31): 'Free Admission'; Heritage Walk 'offered daily', about 45 minutes, in Cantonese, Putonghua or English; Architectural Legacy 'offered on Thursdays and Sundays', about 60 minutes with stairs; online reservation required, on-site walk-in only if slots free up; meeting point Visitor Centre, Block 03; Central Magistracy exhibitions (Block 09) 'temporarily closed on designated Tuesdays' for student programmes; tours cancelled under Typhoon No. 3+ or Red/Black rainstorm within 3 hours. The tour timetable did not render as text, so session times are unknown. (3) Heritage Exhibitions page: 11am-7pm, Free Admission. (4) Anne Imhof: House of Swans exhibition page: 25 Sep 2026 - 3 Jan 2027, Tue-Sun 11am-7pm, JC Contemporary, HK$50 regular / HK$40 concession, multi-entry pass HK$90. No JC Contemporary exhibition for 21-24 January 2027 was found on the site search or the Contemporary Art page; the gallery could be between shows then, which I could not confirm. No renovation or closure notice found for the site. (5) discoverhongkong.com Tai Kwun page confirms address and website; no hours there."
+ },
+ {
+  "id": "pmq",
+  "name_ko": "PMQ (센트럴)",
+  "name_local": "PMQ",
+  "name_zh": "元創方",
+  "category": "sight",
+  "lat": 22.28327,
+  "lng": 114.15185,
+  "coord_source": "OpenStreetMap way 242554453 via Nominatim (2026-11-20): historic dormitory area centroid; rounded to 5 decimals",
+  "address_en": "35 Aberdeen Street, Central, Hong Kong",
+  "url": "https://www.pmq.org.hk/",
+  "hours": {
+   "Mon": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "07:00",
+     "23:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 누리집 기준입니다. 단지는 07:00–23:00 개방하며 요일별 휴무 안내는 없습니다. 공방과 상점은 12:00–19:00, 카페와 식당은 09:00–23:00, 안내센터는 09:00–22:00입니다. 가게마다 시간과 휴무일이 달라 누리집의 개별 안내를 확인하라고 적혀 있습니다.",
+  "fee_ko": "누리집에 단지 입장료 안내는 없습니다. 지하 유적 해설 구역 자유 관람(약 15분)과 문화유산 해설 관람은 무료입니다.",
+  "dur": 60,
+  "memo_ko": "1951년에 지은 옛 경찰 기혼자 숙소(3급 역사건축물)를 디자인 공방과 상점 단지로 바꾼 곳이며, 그 전에는 중앙서원 자리였습니다. 문화유산 해설 관람은 광둥어로 14:00와 15:30에 약 60분 진행하고, 4명 이상이 방문 2개월 전부터 2주 전 사이에 예약해야 합니다. 영어 해설은 별도 협의가 필요합니다.",
+  "source_url": "https://www.pmq.org.hk/the-site/feature-facilities/",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "PMQ, 35 Aberdeen Street, Hong Kong",
+  "evidence": "All from pmq.org.hk raw HTML via curl. (1) The Site / Feature Facilities page: 'Address No.35 Aberdeen Street, Central'; 'Year Built 1951'; 'Grade 3 Historical Building'; 'Opening hours 7:00am - 11:00pm'; 'Business Hours: Studio Units and Shops 12:00nn - 7:00pm; Cafes and Restaurants 9:00am - 11:00pm'; note to check individual shop pages; Info Centre (Unit SG01, G/F, Block A) 'Opening Hours: 9:00am – 10:00pm', hotline 2870 2335. No weekday closures stated. (2) Home page and Explore PMQ page (EN and KR) repeat the shop and restaurant hours. (3) Contact page: office S614, Block A, 35 Aberdeen Street, Central; (852) 2870-2335 (office hours Mon-Fri, not visiting hours). (4) Guided tour page: Underground Interpretation Area walk-in tour about 15 minutes, up to 30 visitors, 'Free of Charge'; PMQ Heritage Interpretation Guided Tour 2:00pm-3:00pm / 3:30pm-4:30pm, about 60 minutes, by appointment, 4 to 10 people, Cantonese with special arrangement for English and Mandarin, 'Free of Charge', reservations from two months to two weeks before the visit; both closed under Typhoon No. 8+ or Black Rainstorm. The page source also contains a red notice that all guided tours are suspended and the Underground Interpretation Area and 5/F Exhibition Area are temporarily closed, but that notice sits inside an HTML comment and is not displayed, so I treated it as withdrawn; this is an inference worth a check before relying on the tour. Days of the week for the tour and walk-in hours are not stated. (5) No admission fee is mentioned anywhere on the official site or on discoverhongkong.com, so fee_ko says only that no fee notice exists. Chinese name '元創方' from the site's page title. Third-party sites also give 7am-11pm; some older listings give 11am-8pm, treated as outdated. No renovation or closure notice found for January 2027."
+ },
+ {
+  "id": "hong-kong-palace-museum",
+  "name_ko": "홍콩 고궁박물관 (서구룡)",
+  "name_local": "Hong Kong Palace Museum",
+  "name_zh": "香港故宮文化博物館",
+  "category": "sight",
+  "lat": 22.30165,
+  "lng": 114.1554,
+  "coord_source": "OpenStreetMap way 640750810 via Nominatim (2026-11-20): museum building centroid; rounded to 5 decimals",
+  "address_en": "8 Museum Drive, West Kowloon Cultural District, Kowloon, Hong Kong",
+  "url": "https://www.hkpm.org.hk/",
+  "hours": {
+   "Mon": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Tue": [],
+   "Wed": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "10:00",
+     "20:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "10:00",
+     "20:00"
+    ]
+   ],
+   "Sun": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "박물관 누리집 기준입니다. 화요일은 휴관합니다(공휴일이면 개관). 금요일과 토요일, 공휴일은 10:00–20:00입니다. 1층 매표소는 폐관 1시간 전에 마감하며, 별도의 마지막 입장 시각은 공지되어 있지 않습니다. 음력설 첫째 날과 둘째 날은 휴관하지만 2027년 음력설은 2월 6일이라 여행 기간과 겹치지 않습니다. 2026-11-20 현재 2027년 1월 특별 운영 공지는 없습니다.",
+  "fee_ko": "일반 입장권(1–7전시실)은 성인 HK$70, 할인 HK$35입니다. 특별전 포함 입장권(1–8전시실)은 성인 HK$150, 할인 HK$75입니다. 해당 월 안에서 날짜를 고를 수 있는 유연권은 일반 HK$90(할인 HK$45), 특별전 포함 HK$180(할인 HK$90)입니다. 6세 이하는 무료이며, 할인 대상은 7–11세 어린이, 전일제 학생, 60세 이상 등입니다.",
+  "dur": 150,
+  "memo_ko": "일반 입장권은 날짜와 입장 시간을 지정해 예매합니다. 8전시실 특별전(실크로드 불교 미술)은 입장권 안내 기준 2026-12-11부터 2027-05-05까지입니다. 9전시실은 2026-09-01부터 별도 공지 때까지 닫혀 있습니다. 문의 전화는 2200 0217입니다.",
+  "source_url": "https://www.hkpm.org.hk/en/visit/plan-your-visit",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Hong Kong Palace Museum, Museum Drive, West Kowloon, Hong Kong",
+  "evidence": "hkpm.org.hk/en/visit/plan-your-visit: 'Monday, Wednesday, Thursday, Sunday 10:00 am-06:00 pm; Friday, Saturday, Public Holiday 10:00 am-08:00 pm'; 'Closed on Tuesdays (except public holidays) & the first two days of the Lunar New Year'; 'G/F Tickets will close one hour before the Museum closes' (no explicit last-admission time). Agrees with the OpenStreetMap hours given. TC page /tc/visit/plan-your-visit gives name 香港故宮文化博物館 and address 九龍西九文化區博物館道8號 with the same hours. Announcement 2026-10-19 '2026 special opening hours arrangement': 30 Nov 2026 closed, 1 Dec 2026 (Tue) 10:00-18:00; nothing for January 2027. /en/visit/ticket: General Admission (Gallery 1-7) Regular HK$70 / concession HK$35, Flex HK$90 / HK$45; Special Exhibition (Gallery 1-7 & 8) Regular HK$150 / HK$75, Flex HK$180 / HK$90; exhibition 'GS Charity Foundation Presents: Cultural Exchange and Buddhist Art along the Silk Roads', period 11.12.2026-05.05.2027; Regular = specified date and time, Flex = specified month; free for children 6 and under; concessions for ages 7-11, full-time students, 60+, persons with disabilities plus one companion, CSSA recipients. No free-admission weekday listed. Announcement 2026-07-14 'Temporary closure of galleries updates': Gallery 9 closed from 1 Sep 2026 and Gallery 8 closed from 20 Oct 2026, both 'until further notice'. Conflict/doubt: the ticket page sells a Gallery 8 exhibition from 11 Dec 2026, so Gallery 8 presumably reopens then, but no reopening notice was found; an older Dec 2025 press release (seen only as a search snippet) gave 9 Dec 2026-26 Apr 2027 (working title), superseded by the ticket page dates. Lunar New Year's Day 2027 is Sat 6 Feb (gov.hk 2027 general holidays, via search), so no holiday or LNY closure falls on 21-24 Jan 2027. Note: the Korean exhibition name in memo_ko is a short translation, not an official Korean title."
+ },
+ {
+  "id": "ngong-ping-360-tung-chung",
+  "name_ko": "옹핑 360 케이블카 (퉁청 승강장)",
+  "name_local": "Ngong Ping 360 Cable Car, Tung Chung Cable Car Terminal",
+  "name_zh": "昂坪360 東涌纜車站",
+  "category": "transport",
+  "lat": 22.29017,
+  "lng": 113.93864,
+  "coord_source": "OpenStreetMap way 26321659 via Nominatim (2026-11-20): aerialway station Tung Chung Cable Car Terminal; rounded to 5 decimals",
+  "address_en": "Tung Chung Cable Car Terminal, 11 Tat Tung Road, Tung Chung, Lantau Island, Hong Kong",
+  "url": "https://www.np360.com.hk/en/",
+  "hours": {
+   "Mon": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Tue": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Wed": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Thu": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Fri": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "Sat": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "운영사 누리집 여행 안내 기준입니다. 평일은 10:00–18:00, 토요일과 일요일 및 공휴일은 09:00–18:30입니다. 마지막 탑승 시각은 공지되어 있지 않습니다. 2026-11-20 현재 2027년 1월 정기 정비 공지는 없습니다. 최근 정비 공지는 정비 3주에서 한 달 전에 나왔으므로 12월 말과 출발 직전에 다시 확인해야 합니다. 정비일과 악천후에는 케이블카만 운휴하고 옹핑 빌리지는 엽니다.",
+  "fee_ko": "왕복 기준 일반 캐빈은 성인 HK$295, 어린이(3–11세) HK$150입니다. 크리스털 캐빈(바닥 유리)은 성인 HK$365, 어린이 HK$220입니다. 크리스털+ 왕복은 성인 HK$545, 어린이 HK$400입니다. 크리스털 캐빈 편도와 일반 캐빈 편도 조합은 성인 HK$330, 어린이 HK$185입니다. 경로 요금은 홍콩 거주자에게만 적용되며, 2세 이하는 무료입니다. 운영사 누리집 기준입니다.",
+  "dur": 45,
+  "memo_ko": "퉁청역(MTR) 바로 옆 승강장입니다. 옹핑까지 5.7km, 편도 약 25분이 걸립니다(운영사 기준). 머무는 시간은 탑승 25분에 매표와 대기를 더해 45분으로 잡았습니다. 날씨에 따라 운행이 중단될 수 있습니다. 문의 전화는 3666 0606입니다.",
+  "source_url": "https://www.np360.com.hk/en/visitor-information/tourist-guide/",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Ngong Ping 360 Tung Chung Cable Car Terminal, Tat Tung Road, Tung Chung, Hong Kong",
+  "evidence": "np360.com.hk/en/visitor-information/tourist-guide/: Ngong Ping Cable Car and Ngong Ping Village 'Weekdays 10:00 - 18:00', 'Saturdays, Sundays and Public Holidays 9:00 - 18:30'; under 2026 scheduled maintenance: 'No scheduled maintenance day at this moment'; no last-ride time. Homepage (EN and TC) shows the same hours: 開放時間：上午10:00 - 下午6:00 /上午9:00 - 下午6:30 (逢星期六, 日及公眾假期); FAQ text: hours 'may vary during festive seasons'; on servicing days the cable car is suspended while Ngong Ping Village stays open. Media centre (newest item 02/11/2026) lists release CA18/2026 dated 9 Oct 2026 (PDF read): cable car closed for scheduled maintenance on 10 November 2026 only. Other 2026 closures seen in search results / media centre: 3-5 Mar, 12-20 May, 2-21 Jun, 8 Sep to resumption on 18 Sep. Recent notices were issued 22-32 days ahead, so nothing for Jan 2027 is published yet; this is the main doubt. Fares from /en/tickets-promotions/tickets-tours/cable-car-tickets (adult/child 3-11/senior): Standard round trip 295/150/155; Crystal round trip 365/220/235; Crystal+ both ways 545/400/405; Crystal+ one way with Standard the other 420/275/280; combo one-way Crystal + one-way Standard 330/185/195. Senior fare only for Hong Kong residents with JoyYou Card or Senior Citizen Card; infants 0-2 free. The page shows no separate walk-in vs online prices and no validity dates. The 20th-anniversary HK$88 offer is for Hong Kong residents on 2026 dates only, so not applicable. Address: the official site gives no street address, only 'Tung Chung Cable Car Terminal is adjacent to MTR Tung Chung Station'; '11 Tat Tung Road, Tung Chung' comes from secondary listings (e.g. topchinatravel.com, waymarking/search results) and is not officially confirmed. Chinese names from the TC homepage: 昂坪360, 昂坪纜車, 東涌纜車站. 5.7 km and 25-minute ride from the press-release boilerplate. Discover Hong Kong page lists only 'Ngong Ping, Lantau Island' and the np360 website, no hours."
+ },
+ {
+  "id": "tian-tan-buddha",
+  "name_ko": "천단대불과 포린 사원 (옹핑)",
+  "name_local": "Tian Tan Buddha (Big Buddha) and Po Lin Monastery",
+  "name_zh": "天壇大佛 寶蓮禪寺",
+  "category": "sight",
+  "lat": 22.25396,
+  "lng": 113.90501,
+  "coord_source": "OpenStreetMap way 45659816 via Nominatim (2026-11-20): Tian Tan Buddha Statue (Po Lin Monastery relation 7157639 is 250 m east); rounded to 5 decimals",
+  "address_en": "Po Lin Monastery, Ngong Ping, Lantau Island, Hong Kong",
+  "url": "https://www.plm.org.hk/eng/home.php",
+  "hours": {
+   "Mon": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "10:00",
+     "17:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "포린 사원 누리집 기준입니다. 천단대불은 공휴일을 포함해 매일 10:00–17:30, 포린 사원은 매일 09:00–18:00, 사원 채식 식당은 11:30–16:30입니다. 시간표에는 두 곳이 모두 열려 있는 대불 시간을 넣었습니다. 2026-11-20 현재 휴관 공지는 없습니다.",
+  "fee_ko": "공식 누리집에는 입장료 안내가 없습니다. 대불과 사원 경내는 무료라는 것이 여러 민간 안내서의 공통 내용이지만 공식으로 확인하지는 못했습니다. 대불 기단 안 전시실은 식권이나 별도 표가 필요하다는 민간 정보가 있으며 가격은 확인하지 못했습니다.",
+  "dur": 120,
+  "memo_ko": "옹핑 빌리지에서 대불과 사원까지 각각 걸어서 약 10분입니다(옹핑 360 누리집 기준). 대불은 기단 포함 높이 34m이며 계단 268개를 올라야 합니다(홍콩관광청 기준). 문의 전화는 2985 5248입니다.",
+  "source_url": "https://www.plm.org.hk/eng/visitors.php",
+  "accessed": "2026-11-20",
+  "verification": "official",
+  "osm_query": "Tian Tan Buddha, Ngong Ping, Lantau Island, Hong Kong",
+  "evidence": "plm.org.hk/eng/visitors.php (Po Lin Monastery's own site): Tian Tan Buddha Monday to Sunday incl. public holidays '10 am to 5:30 pm'; Po Lin Monastery '9 am to 6 pm'; Vegetarian Kitchen '11:30 am to 4:30 pm'; address 'Po Lin Monastery, Ngong Ping, Lantau Island'; tel (852) 2985 5248. The Chinese visitors.php matches (上午10時至下午5時半 / 上午9時至下午6時 / 上午11時半至下午4時半). plm.org.hk/eng/buddha.php lists a 'Thus Come Thus Gone Exhibition' 10:00am-5:00pm seven days a week, location not stated clearly (possibly inside the Buddha base; unconfirmed). No PLM page states admission fees, meal-ticket prices, or rules for entering the halls inside the base. Discover Hong Kong Big Buddha page (read in browser; WebFetch blocked with 403): 34 metres including base, 268 steps, address 'Ngong Ping, Lantau Island, Outlying Islands', website plm.org.hk; no hours or fees. NP360 nearby-attraction pages: Big Buddha and Po Lin Monastery each about 10 minutes on foot from Ngong Ping Village. Free entry to the statue and monastery grounds, and ticket/meal-ticket access to the inner halls (one 2019 blog cites HK$45), come only from secondary sites (nextstophongkong.com, watercolourmarks.com, cavinteo blog) and are not officially confirmed. Choice made: the hours field uses the Buddha hours (10:00-17:30), the window when both sites are open; monastery hours are wider. No closure announcements found."
+ },
+ {
+  "id": "stanley-market",
+  "name_ko": "스탠리 마켓",
+  "name_local": "Stanley Market",
+  "name_zh": "赤柱市集",
+  "category": "shop",
+  "lat": 22.21868,
+  "lng": 114.21227,
+  "coord_source": "OpenStreetMap way 1424955562 via Nominatim (2026-11-20): Stanley Market Open Space Hawker Bazaar, Stanley New Street; rounded to 5 decimals",
+  "address_en": "Stanley New Street and Stanley Market Road, Stanley, Hong Kong Island, Hong Kong",
+  "url": "https://www.discoverhongkong.com/eng/place-to-go/travel.guide-stanley-market.html",
+  "hours": {
+   "Mon": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Tue": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Wed": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Thu": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Fri": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Sat": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ],
+   "Sun": [
+    [
+     "10:00",
+     "18:30"
+    ]
+   ]
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 운영 시간은 없습니다. 홍콩관광청 안내에는 주소만 있고 시간이 없습니다. 10:00–18:30은 홍콩관광청이 연결한 민간 안내 누리집에 적힌 일반적인 영업 시간이며, 가게마다 시간이 다릅니다. 다른 민간 안내서에는 18:00 또는 19:00 마감으로 적혀 있으므로 늦은 시간 방문은 피하는 것이 좋습니다.",
+  "fee_ko": "",
+  "dur": 90,
+  "memo_ko": "매일 열리는 노천 시장이며 해안 산책로와 가깝습니다(홍콩관광청 기준). 지하철역이 없어 버스로 가야 합니다. 입장료는 없습니다.",
+  "source_url": "https://www.hk-stanley-market.com/stanley-market-opening-hours",
+  "accessed": "2026-11-20",
+  "verification": "other",
+  "osm_query": "Stanley Market, Stanley New Street, Stanley, Hong Kong",
+  "evidence": "Discover Hong Kong Stanley Market page (read in the browser pane because WebFetch returned 403): address 'Stanley New Street and Stanley Market Road, Stanley, Hong Kong Island'; website hk-stanley-market.com; text says there is no MTR and good bus links to Central; no opening hours listed. hk-stanley-market.com (footer '2014-2026, WL Media Hong Kong'; a private guide site, not a government body or market authority): homepage 'Open daily from 10:00am to 6:30pm'; its opening-hours page (last updated October 2026) says each shop sets its own hours, the 10:00-18:30 window is 'not a quoted schedule', some small shops close for the first day or two of Lunar New Year, and the lane itself is accessible 24 hours. Other secondary listings seen in search results give 10:00-18:00, a few say 18:30 or 19:00, and one says some shops open at 9:00 on weekends. Wikipedia gives the Chinese name 赤柱市集 and no hours. No official source for hours was found. The url field points to the Hong Kong Tourism Board page because the market has no operator website; hk-stanley-market.com is linked from that page but is privately run."
+ },
+ {
+  "id": "repulse-bay",
+  "name_ko": "리펄스 베이",
+  "name_local": "Repulse Bay Beach",
+  "name_zh": "淺水灣泳灘",
+  "category": "sight",
+  "lat": 22.23655,
+  "lng": 114.19654,
+  "coord_source": "OpenStreetMap way 155997180 via Nominatim (2026-11-20): natural=beach area centroid; rounded to 5 decimals",
+  "address_en": "Beach Road, Repulse Bay, Hong Kong Island, Hong Kong",
+  "url": "https://www.lcsd.gov.hk/en/beach/index/beach-location-hk/beach-address-south.html",
+  "hours": {
+   "Mon": null,
+   "Tue": null,
+   "Wed": null,
+   "Thu": null,
+   "Fri": null,
+   "Sat": null,
+   "Sun": null
+  },
+  "date_exceptions": [],
+  "hours_note_ko": "공식 개방 시간 공지를 찾지 못해 시간을 비워 두었습니다. 출입문이 없는 공공 해변이지만 상시 개방을 밝힌 공식 문서는 확인하지 못했습니다. 홍콩 레저문화서비스부 기준으로 이 해변의 인명구조원 근무는 2026-12-01부터 2027-02-28까지 중단되므로 여행 기간에는 수영하지 않아야 합니다. 탈의실과 샤워실은 시설 목록에 있으나 겨울 운영 시간은 공지되어 있지 않습니다.",
+  "fee_ko": "",
+  "dur": 60,
+  "memo_ko": "겨울에도 인명구조원이 근무하는 가까운 해변은 딥워터베이 해변입니다(08:00–17:00, 레저문화서비스부 기준). 해변 근처에 틴하우 사원이 있습니다(홍콩관광청 기준). 해변 문의 전화는 2812 2483입니다.",
+  "source_url": "https://www.lcsd.gov.hk/en/beach/index.html",
+  "accessed": "2026-11-20",
+  "verification": "none",
+  "osm_query": "Repulse Bay Beach, Beach Road, Repulse Bay, Hong Kong",
+  "evidence": "LCSD Southern District beach page (EN and TC): Repulse Bay Beach (淺水灣泳灘), 'Beach Road, Repulse Bay' (淺水灣，海灘道), tel 2812 2483; lifeguard hours April-May 9am-6pm, June-August Mon-Fri 9am-6pm and Sat/Sun/PH 8am-7pm, September-October 9am-6pm, November 8am-5pm, December-February 'Lifeguard services are suspended', March 8am-5pm; facilities: restaurant, light refreshment kiosk, self-service storage cage, changing room, shower facilities, toilet, raft, playground, beach volleyball court; shark prevention net; no facility opening hours given. LCSD beach index notice: lifesaving 1 Dec 2026-28 Feb 2027 only at Deep Water Bay, Clear Water Bay Second, Silverstrand, Golden, Lido and Casam beaches (8am-5pm); Repulse Bay is listed for 1-30 Nov 2026 and 1-31 Mar 2027 only; 'People should swim at the beaches only when lifeguard services are available'; it also says failure to comply with temporary closure arrangements of beaches is an offence, so beaches can be closed by notice. Discover Hong Kong Repulse Bay Beach page (browser): address 'Beach Road, Repulse Bay, Hong Kong Island', mentions showers, changing rooms, beachfront restaurants and the nearby Tin Hau Temple, announcement to check lifeguard availability; no hours. No official source states 24-hour or open access (only third-party sites such as audiala.com and travelchinaguide.com say 'all day'/24 h), so hours are null as instructed. Winter changing-room hours were not found anywhere. verification is 'official' because every stated fact comes from LCSD or the Tourism Board, but the hours themselves are unknown."
+ }
+]
